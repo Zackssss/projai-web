@@ -16,21 +16,21 @@ router.post('/', (req, res, next) => {
 });
 
     //get user by id
-router.get('/usersId', (req, res, next) => {
+router.get('/:usersId', (req, res, next) => {
     res.status(200).json({
         message:"Get pour utilisateurs par id"
     });
 });
 
     //patch user by id
-router.patch('/usersId', (req, res, next) => {
+router.patch('/:usersId', (req, res, next) => {
     res.status(201).json({
         message:"Patch pour utilisateurs par id"
     });
 });
 
     //delete user by id
-router.get('/usersId', (req, res, next) => {
+router.delete('/:usersId', (req, res, next) => {
     res.status(200).json({
         message:"Delete pour utilisateurs par id"
     });
