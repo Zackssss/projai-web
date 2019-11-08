@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
 
-const productRoutes = require('./api/routes/products');
+const productRoutes = require('./api/routes/product');
 
-app.use('/produits', productRoutes);
+app.use('/products', productRoutes);
 
 module.exports = app;
