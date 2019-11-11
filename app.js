@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const productsRoutes = require('./api/routes/product');
 const usersRoutes = require('./api/routes/users');
 const articlesRoutes = require('./api/routes/articles');
+const comsRoutes = require('./api/routes/coms');
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
@@ -26,6 +27,10 @@ app.use((req, res, next) => {
 app.use('/products', productsRoutes);
 app.use('/users', usersRoutes);
 app.use('/articles', articlesRoutes);
+app.use('/coms', comsRoutes);
+
+
+
 
     //Error routes
 app.use((req, res, next) =>{
