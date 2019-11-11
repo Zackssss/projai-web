@@ -6,14 +6,14 @@ const router = express.Router();
     //Articles list 
 router.get('/', (req, res, next) => {
     res.status(200).json({
-        message:"Get pour produits"
+        message:"Get pour article"
     });
 });
 
     //Add an article
 router.post('/', (req, res, next) => {
     res.status(201).json({
-        message:"Post pour produits"
+        message:"Post pour article"
     });
 });
 
@@ -22,6 +22,15 @@ router.get('/:articletId', (req, res, next) => {
     const id = req.params.articleId;
     res.status(200).json({
         message:"Get pour article par id", 
+        id: id
+    });
+});
+
+    //Get an article liste wrotten by an author with the userId
+router.get('/author/userId', (req, res, next) => {
+    const id = req.params.userId;
+    res.status(200).json({
+        message:"Get pour article par userId", 
         id: id
     });
 });
