@@ -7,7 +7,7 @@ var User = function(user){
     this.created_at = new Date();
 };
 
-user.creatuser = function (newuser, result) {
+user.createuser = function (newuser, result) {
     usrsql.query("INSERT INTO",newuser, function(err, res){
         if(err) {
             console.log("error: ", err);
