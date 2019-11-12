@@ -8,7 +8,7 @@ var local = mysql.createConnection({
   password: ""
 });
  
-loacal.connect(function(err1) {
+local.connect(function(err1) {
   if (err1) throw err1;
   console.log("Local db connected!");
 });
