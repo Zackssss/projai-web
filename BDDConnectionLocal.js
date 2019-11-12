@@ -13,16 +13,4 @@ local.connect(function(err1) {
   console.log("Local db connected!");
 });
 
-
-
-var userbase = mysql.createConnection({
-    database: 'user',
-    host: "localhost",
-    user: "root",
-    password: ""
-  });
-   
-  userbase.connect(function(err2) {
-    if (err2) throw err2;
-    console.log("User base connected!");
-  });
+module.exports = local;
