@@ -27,7 +27,7 @@ router.get('/:articletId', (req, res, next) => {
 });
 
     //Get an article liste wrotten by an author with the userId
-router.get('/author/userId', (req, res, next) => {
+router.get('/author/:userId', (req, res, next) => {
     const id = req.params.userId;
     res.status(200).json({
         message:"Get pour article par userId", 

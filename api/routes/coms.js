@@ -27,7 +27,7 @@ router.get('/:comId', (req, res, next) => {
 });
 
     //Get a com liste wrotten by an author with the userId
-router.get('/author/userId', (req, res, next) => {
+router.get('/author/:userId', (req, res, next) => {
     const id = req.params.userId;
     res.status(200).json({
         message:"Get pour com par userId", 
@@ -36,7 +36,7 @@ router.get('/author/userId', (req, res, next) => {
 });
 
     //Get a com liste related with the imgId
-router.get('/img/imgId', (req, res, next) => {
+router.get('/img/:imgId', (req, res, next) => {
     const id = req.params.userId;
     res.status(200).json({
         message:"Get pour com par imgId", 
@@ -45,7 +45,7 @@ router.get('/img/imgId', (req, res, next) => {
 });
 
     //Get a com liste related with the articleId
-router.get('/article/articleId', (req, res, next) => {
+router.get('/article/:articleId', (req, res, next) => {
     const id = req.params.userId;
     res.status(200).json({
         message:"Get pour com par articleId", 
