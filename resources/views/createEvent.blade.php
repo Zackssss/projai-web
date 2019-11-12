@@ -86,6 +86,6 @@
                                 </div>
                             </div>
                                 <div class="form-group">
-                                    <button class="btn btn-primary">Enregistrer</button>
+                                    <button type = "submit" class="btn btn-success">Enregistrer</button>
                                 </div>
                             </form>

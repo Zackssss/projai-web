@@ -59,14 +59,10 @@ Route::get('/createProduit', 'ProduitController@create');
 
 Route::post('/createProduit', 'ProduitController@store');
 
+Route::get('/createEvent', 'EvenementController@create');
 
-Route::get('/createEvent', function () {
-    return view('createEvent');
-});
+Route::post('/createEvent', 'EvenementController@store');
 
-Route::post('/createEvent', function () {
-    return view('createEvent');
-});
 
 /*Route::get('/creationevent', function () {
     return view('creation_event');
