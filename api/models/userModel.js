@@ -8,7 +8,7 @@ var User = function(user){
 };
 
     //Show the list of user
-User.getAllUser = function (result) {
+User.getAllUsers = function (result) {
     usrsql.query("", function(err, res){
         if(err) {
             console.log("error: ", err);
@@ -38,7 +38,7 @@ User.createUser = function (newuser, result) {
 }
 
     //Show one user using his id
-User.showUser = function (userId, result) {
+User.getUserById = function (userId, result) {
     usrsql.query("",userId, function(err, res){
         if(err) {
             console.log("error: ", err);
@@ -53,7 +53,7 @@ User.showUser = function (userId, result) {
 }
 
     //Update a user using his id
-User.updateUserbyId = function (id, user, result) {
+User.updateUserById = function (id, user, result) {
     usrsql.query("",[user.user, id], function(err, res){
         if(err) {
             console.log("error: ", err);

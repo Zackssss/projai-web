@@ -3,13 +3,13 @@ const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 
-const productsRoutes = require('./api/routes/product');
-const usersRoutes = require('./api/routes/users');
-const articlesRoutes = require('./api/routes/articles');
-const comsRoutes = require('./api/routes/coms');
+const productsRoutes = require('./api/routes/productroute');
+const usersRoutes = require('./api/routes/usersroute');
+const articlesRoutes = require('./api/routes/articlesroute');
+const comsRoutes = require('./api/routes/comsroute');
 
 app.use(morgan('dev'));
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
