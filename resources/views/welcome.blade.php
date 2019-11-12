@@ -5,6 +5,7 @@
 </html>
    <body>
     @extends('layouts.nav')
+   
     </body>
 
 
