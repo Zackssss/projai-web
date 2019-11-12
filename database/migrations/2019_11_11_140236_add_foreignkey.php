@@ -8,6 +8,7 @@ class AddForeignkey extends Migration
 {
     /**
      * Creating all the foreign keys
+     * test
      *
      * @return void
      */
@@ -59,6 +60,6 @@ class AddForeignkey extends Migration
      */
     public function down()
     {
-        //
+        
     }
 }
