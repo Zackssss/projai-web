@@ -15,7 +15,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -54,6 +53,19 @@ Route::get('/produits', function () {
 
 Route::get('/produitsuniques', function () {
     return view('produits_uniques');
+});
+
+Route::get('/createProduit', 'ProduitController@create');
+
+Route::post('/createProduit', 'ProduitController@store');
+
+
+Route::get('/createEvent', function () {
+    return view('createEvent');
+});
+
+Route::post('/createEvent', function () {
+    return view('createEvent');
 });
 
 /*Route::get('/creationevent', function () {
