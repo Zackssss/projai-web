@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -55,7 +56,7 @@ Route::get('/produitsuniques', function () {
     return view('produits_uniques');
 });
 
-Route::get('/creationevent', function () {
+/*Route::get('/creationevent', function () {
     return view('creation_event');
 })->middleware('admin');
 
@@ -65,12 +66,5 @@ Route::group(['middleware' => ['admin']], function () {
 
 Route::middleware(['admin', 'subscribed'])->group(function () {
     return view('creation_event');
-});
+});*/
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/createEvenement', function () {
-    return view('createEvent');
-});
