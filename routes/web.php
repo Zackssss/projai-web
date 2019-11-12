@@ -23,6 +23,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/createEvent', function () {
+Route::get('/createEvenement', function () {
     return view('createEvent');
 });
