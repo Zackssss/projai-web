@@ -20,7 +20,7 @@ class CreateCommandeTable extends Migration
             $table->date('date_commande');
             $table->integer('quantite');
             $table->integer('user_id');
-            $table->bigInteger('id_produit')->unsigned();
+            $table->bigInteger('id_produit')->unsigned()->index();
             $table->timestamps();
         });
     }
