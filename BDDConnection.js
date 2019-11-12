@@ -1,28 +1,28 @@
 const mysql = require('mysql');
  
  
-var con1 = mysql.createConnection({
-  database: 'mytestdb1',
+var local = mysql.createConnection({
+  database: 'bddlocal',
   host: "localhost",
   user: "root",
   password: ""
 });
  
-con1.connect(function(err1) {
+loacal.connect(function(err1) {
   if (err1) throw err1;
-  console.log("BDD1 connected!");
+  console.log("Local db connected!");
 });
 
 
 
-var con2 = mysql.createConnection({
-    database: 'mytestdb2',
+var userbase = mysql.createConnection({
+    database: 'user',
     host: "localhost",
     user: "root",
     password: ""
   });
    
-  con2.connect(function(err2) {
+  userbase.connect(function(err2) {
     if (err2) throw err2;
-    console.log("BDD2 connected!");
+    console.log("User base connected!");
   });
