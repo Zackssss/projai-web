@@ -5,24 +5,21 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('create_evenement') }}</div>
+                    <div class="card-header">{{ __('createEvent') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('create_evenement') }}">
+                        <form method="POST" action="{{ route('createEvent') }}">
                             @csrf
+                            <label for="nom_produit" class="col-md-4 col-form-label text-md-right">{{ __('Nom') }}</label>
 
-                            <div class="form-group row">
-                                <label for="nom_evenement" class="col-md-4 col-form-label text-md-right">{{ __('Nom') }}</label>
+                            <div class="col-md-6">
+                                <input id="nom_produit" type="text" class="form-control @error('nom_produit') is-invalid @enderror" name="nom_produit" value="{{ old('nom_produit') }}" required autocomplete="nom_produit" autofocus>
 
-                                <div class="col-md-6">
-                                    <input id="nom_evenement" type="text" class="form-control @error('nom_evenement') is-invalid @enderror" name="nom_evenement" value="{{ old('nom_evenement') }}" required autocomplete="nom_evenement" autofocus>
-
-                                    @error('nom_evenement)
-                                    <span class="invalid-feedback" role="alert">
+                                @error('nom_evenement)
+                                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                    @enderror
-                                </div>
+                                @enderror
                             </div>
 
                             <div class="form-group row">
@@ -40,12 +37,12 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="description_evenement" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
+                                <label for="description_produit" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="description_evenement" type="text" class="form-control @error('description_evenement') is-invalid @enderror" name="description" value="{{ old('description_evenement') }}" required autocomplete="description_evenement" autofocus>
+                                    <input id="description_produit" type="text" class="form-control @error('description_produit') is-invalid @enderror" name="description_produit" value="{{ old('description_produit') }}" required autocomplete="description_produit" autofocus>
 
-                                    @error('description_evenement')
+                                    @error('description_produit')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -54,26 +51,12 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="date_evenement" class="col-md-4 col-form-label text-md-right">{{ __('Date') }}</label>
+                                <label for="date_produit" class="col-md-4 col-form-label text-md-right">{{ __('Date_expiration') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="date_evenement" type="date" class="form-control @error('description_evenement') is-invalid @enderror" name="date_evenement" value="01-01-2019" min="2019-11-11">
+                                    <input id="date_produit" type="date" class="form-control @error('description_produit') is-invalid @enderror" name="date_produit" value="01-01-2019" min="2019-11-11">
 
-                                    @error('date')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="recurrence" class="col-md-4 col-form-label text-md-right">{{ __('Recurrence') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="recurrence" type="checkbox" class="form-control @error('recurrence') is-invalid @enderror" name="recurrence">
-
-                                    @error('recurrence')
+                                    @error('date_produit')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -85,7 +68,7 @@
                                 <label for="prix" class="col-md-4 col-form-label text-md-right">{{ __('Prix') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="prix" type="text" class="form-control @error('prix') is-invalid @enderror" name="prix" value="{{ old('prix') }}" required autocomplete="prix" autofocus>
+                                    <input id="prix" type="text" class="form-control @error('prix') is-invalid @enderror" name="description" value="{{ old('prix') }}" required autocomplete="prix" autofocus>
 
                                     @error('prix')
                                     <span class="invalid-feedback" role="alert">

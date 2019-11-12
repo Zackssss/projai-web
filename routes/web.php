@@ -19,3 +19,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/createEvent', function () {
+    return view('createEvent');
+});
