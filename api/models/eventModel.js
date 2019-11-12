@@ -3,9 +3,12 @@ const usrsql = require('C:/Users/Thierry Bissel/Documents/GitHub/projai-web/BDDC
 
 var Event = function(event){
     this.nom_evenement = event.nom_evenement;
+    this.association = event.association;
     this.description_evenement = event.description_evenement;
-    this.prix = event.prix;
-    this.nbr_de_vente = event.nbr_de_vente;
+    this.date = event.date;
+    this.reccurence = event.reccurence;
+    this.date_creation = event.date_creation;
+    this.user_id = event.user_id;
 };
 
     //Show the list of event
@@ -52,6 +55,21 @@ Event.getEventById = function (eventId, result) {
     })
     
 }
+
+    //Show one event using his author id
+    Event.getEventByuserId = function (userId, result) {
+        lclsql.query("Select * from evenement where user_id = ? ",userId, function(err, res){
+            if(err) {
+                console.log("error: ", err);
+                result(err, null);
+            }
+            else{
+                console.log(res);
+                result(null, res);
+            }
+        })
+        
+    }
 
     //Update a event using his id
 Event.updateEventById = function (id, event, result) {

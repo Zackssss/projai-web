@@ -53,7 +53,7 @@ router.delete('/:productId', (req, res, next) => {
     Product.deleteProduct( req.params.productId, function(err, product) {
         if (err)
           res.send(err);
-        res.json({ message: 'User successfully deleted' });
+        res.json({ message: 'Product successfully deleted' });
       });
 });
 

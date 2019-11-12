@@ -26,7 +26,7 @@ app.use((req, res, next) => {
     //Routes for normal requests
 app.use('/products', productsRoutes);
 app.use('/users', usersRoutes);
-app.use('/event', eventsRoutes);
+app.use('/events', eventsRoutes);
 app.use('/coms', comsRoutes);
 
 
