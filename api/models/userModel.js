@@ -1,5 +1,5 @@
-const lclsql = require('../BDDConnectionLocal');
-const usrsql = require('../BDDConnectionUser');
+const lclsql = require('C:/Users/Thierry Bissel/Documents/GitHub/projai-web/BDDConnectionLocal.js');
+const usrsql = require('C:/Users/Thierry Bissel/Documents/GitHub/projai-web/BDDConnectionUser.js');
 
 var User = function(user){
     this.user = user.user;
@@ -9,7 +9,7 @@ var User = function(user){
 
     //Show the list of user
 User.getAllUsers = function (result) {
-    usrsql.query("", function(err, res){
+    usrsql.query("SELECT user_id, nom, prenom, centre, mail, role FROM user", function(err, res){
         if(err) {
             console.log("error: ", err);
             result(err, null);
@@ -24,7 +24,7 @@ User.getAllUsers = function (result) {
 
     //Create a user
 User.createUser = function (newuser, result) {
-    usrsql.query("",newuser, function(err, res){
+    usrsql.query("INSERT INTO user set ?", newuser, function(err, res){
         if(err) {
             console.log("error: ", err);
             result(err, null);

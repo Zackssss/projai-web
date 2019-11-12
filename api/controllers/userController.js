@@ -1,13 +1,14 @@
-var User = require('../model/userModel.js');
+var User = require('../models/userModel');
 
 exports.list_all_users = function(req, res) {
   User.getAllUsers(function(err, user) {
 
     console.log('controller')
-    if (err)
+    if (err){
       res.send(err);
       console.log('res', user);
-    res.status(200).json.send(user);
+    }
+    res.status(200).json(user);
   });
 };
 
