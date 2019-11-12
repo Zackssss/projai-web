@@ -19,14 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/connexion', function () {
-    return view('connexion');
-});
-
-Route::get('/inscription', function () {
-    return view('inscription');
-});
-
 Route::get('/panier', function () {
     return view('panier');
 });

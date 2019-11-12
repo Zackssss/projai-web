@@ -15,4 +15,8 @@
             color: white;
             text-align: center;
         }
+</style>
 </head>
+<main class="py-sm-5 d-inline-block" >
+    @yield('content')
+</main>
