@@ -7,18 +7,40 @@ use Illuminate\Support\Facades\Schema;
 class AddForeignkeyImage extends Migration
 {
     /**
-     * Run the migrations.
+     * Creating all the foreign keys
      *
      * @return void
      */
     public function up()
     {
-       /* Schema::disableForeignKeyConstraints();
+        
         
         Schema::table('image',function(Blueprint $table){
             $table->foreign('id_evenement')
-            ->reference('id_evenement')
-            ->on('evenement');
+            ->references('id_evenement')
+            ->on('evenement')
+            ->onDelete('cascade');
+        });
+
+        Schema::table('produit',function(Blueprint $table){
+            $table->foreign('id_evenement')
+            ->references('id_evenement')
+            ->on('produit')
+            ->onDelete('cascade');
+        });
+
+        Schema::table('commande',function(Blueprint $table){
+            $table->foreign('id_produit')
+            ->references('id_produit')
+            ->on('produit')
+            ->onDelete('cascade');
+        });
+
+        Schema::table('commentaire',function(Blueprint $table){
+            $table->foreign('id_image')
+            ->references('id_image')
+            ->on('image')
+            ->onDelete('cascade');
         });
 
 
@@ -27,9 +49,8 @@ class AddForeignkeyImage extends Migration
 
 
 
-        Schema::enableForeignKeyConstraints();
-*/
-    }
+      
+        }
 
     /**
      * Reverse the migrations.

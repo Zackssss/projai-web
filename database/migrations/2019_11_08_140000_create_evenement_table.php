@@ -9,6 +9,7 @@ Schema::enableForeignKeyConstraints();
 class CreateEvenementTable extends Migration
 {
     /**
+     * Creating the evenement table
      * Run the migrations.
      *
      * @return void

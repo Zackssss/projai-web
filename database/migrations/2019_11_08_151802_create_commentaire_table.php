@@ -20,7 +20,7 @@ class CreateCommentaireTable extends Migration
             $table->string('texte',300);
             $table->boolean('visibilite_commentaire');
             $table->integer('user_id');
-            $table->bigInteger('id_image')->unsigned();
+            $table->bigInteger('id_image')->unsigned()->index();
             $table->timestamps();
         });
         
