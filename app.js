@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 
 const productsRoutes = require('./api/routes/productroute');
 const usersRoutes = require('./api/routes/usersroute');
-const articlesRoutes = require('./api/routes/articlesroute');
+const eventsRoutes = require('./api/routes/eventsroute');
 const comsRoutes = require('./api/routes/comsroute');
 
 app.use(morgan('dev'));
@@ -26,7 +26,7 @@ app.use((req, res, next) => {
     //Routes for normal requests
 app.use('/products', productsRoutes);
 app.use('/users', usersRoutes);
-app.use('/articles', articlesRoutes);
+app.use('/event', eventsRoutes);
 app.use('/coms', comsRoutes);
 
 
