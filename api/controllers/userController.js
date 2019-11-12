@@ -16,7 +16,7 @@ exports.update_a_user = function(req, res) {
 exports.delete_a_user = function(req, res) {
 
 
-  User.deleteUser( req.params.userId, function(err, user) {
+  User.deleteUser( req.params.usersId, function(err, user) {
     if (err)
       res.send(err);
     res.json({ message: 'User successfully deleted' });

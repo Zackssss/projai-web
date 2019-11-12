@@ -57,7 +57,7 @@ User.getUserById = function (userId, result) {
 
     //Update a user using his id
 User.updateUserById = function (id, user, result) {
-    usrsql.query("",[user.user, id], function(err, res){
+    usrsql.query("UPDATE user set ? where user_id=?",[user, id], function(err, res){
         if(err) {
             console.log("error: ", err);
             result(err, null);
@@ -70,8 +70,8 @@ User.updateUserById = function (id, user, result) {
 }
 
     //Delete a user using his id
-User.deleteUser = function (newuser, result) {
-    usrsql.query("",[id], function(err, res){
+User.deleteUser = function (id, result) {
+    usrsql.query("delete from user where user_id = ?",[id], function(err, res){
         if(err) {
             console.log("error: ", err);
             result(err, null);
