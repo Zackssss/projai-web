@@ -2,9 +2,12 @@ const lclsql = require('C:/Users/Thierry Bissel/Documents/GitHub/projai-web/BDDC
 const usrsql = require('C:/Users/Thierry Bissel/Documents/GitHub/projai-web/BDDConnectionUser.js');
 
 var User = function(user){
-    this.user = user.user;
-    this.status = user.status;
-    this.created_at = new Date();
+    this.nom = user.nom;
+    this.prenom = user.prenom;
+    this.centre = user.centre;
+    this.mail = user.mail;
+    this.mdp = user.mdp;
+    this.role = user.role;
 };
 
     //Show the list of user
@@ -38,8 +41,8 @@ User.createUser = function (newuser, result) {
 }
 
     //Show one user using his id
-User.getUserById = function (userId, result) {
-    usrsql.query("",userId, function(err, res){
+User.getUserById = function (user_Id, result) {
+    usrsql.query("Select * from user where user_id = ?",user_Id, function(err, res){
         if(err) {
             console.log("error: ", err);
             result(err, null);
