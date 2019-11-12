@@ -21,9 +21,10 @@ class CreateImageTable extends Migration
             $table->string('chemin');
             $table->boolean('visibilite_image');
             $table->integer('appréciation');
-            $table->integer('user_id');
-            $table->bigInteger('id_evenement')->unsigned();
+            $table->integer('user_id_createur_img');
+            $table->bigInteger('id_evenement')->unsigned()->index();
             $table->timestamps();
+         
         });
 
     }

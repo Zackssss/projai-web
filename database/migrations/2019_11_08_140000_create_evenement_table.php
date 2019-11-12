@@ -9,6 +9,7 @@ Schema::enableForeignKeyConstraints();
 class CreateEvenementTable extends Migration
 {
     /**
+     * Creating the evenement table
      * Run the migrations.
      *
      * @return void
@@ -22,7 +23,7 @@ class CreateEvenementTable extends Migration
             $table->string('description_evenement');
             $table->date('date_evenement');
             $table->boolean('reccurence');
-            $table->integer('prix');
+            $table->bigInteger('prix');
             $table->date('date_creation');
             $table->integer('user_id');
             $table->timestamps();
