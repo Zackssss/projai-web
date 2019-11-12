@@ -22,8 +22,7 @@ class CreateEvenementTable extends Migration
             $table->string('association');
             $table->string('description_evenement');
             $table->date('date_evenement');
-            $table->boolean('reccurence');
-            $table->bigInteger('prix');
+            $table->boolean('recurence');
             $table->date('date_creation');
             $table->integer('user_id');
             $table->timestamps();
