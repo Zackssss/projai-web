@@ -41,8 +41,8 @@ User.createUser = function (newuser, result) {
 }
 
     //Show one user using his id
-User.getUserById = function (user_Id, result) {
-    usrsql.query("Select * from user where user_id = ?",user_Id, function(err, res){
+User.getUserById = function (userId, result) {
+    usrsql.query("SELECT user_id, nom, prenom, centre, mail, role FROM user WHERE user_id = ? ",userId, function(err, res){
         if(err) {
             console.log("error: ", err);
             result(err, null);

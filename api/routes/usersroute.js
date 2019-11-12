@@ -30,7 +30,7 @@ router.post('/', (req, res, next) => {
 
     //get user by id
 router.get('/:usersId', (req, res, next) => {
-    User.getUserById(req.params.userId, function(err, user) {
+    User.getUserById(req.params.usersId, function(err, user) {
         if (err)
           res.send(err);
         res.json(user);
