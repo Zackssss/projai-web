@@ -31,8 +31,9 @@
             <ul class="dropdown-menu">
                 <li><a href="/boutique/Id">Tri par id</a></li>
                 
-                <li><a href="/produitsuniques">Nos produits uniques</a></li>
-                <li><a href="/toparticles">Nos articles les plus vendus</a></li>
+                <li><a href="/boutique/prix">Tri par prix</a></li>
+                <li><a href="/boutique/event">Lier à un evenement</a></li>
+                <li><a href="/boutique/notevent">Lier à aucun evenement</a></li>
             </ul>
         </li>
        

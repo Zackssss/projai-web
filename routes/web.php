@@ -42,7 +42,13 @@ Route::get('/toparticles', 'ProduitController@indextop3');
 
 Route::get('/boutique', 'ProduitController@index');
 
-Route::get('/boutique/Id', 'ProduitController@Id');
+Route::get('/boutique/Id', 'ProduitController@TriBoutiqueId');
+
+Route::get('/boutique/prix', 'ProduitController@TriBoutiquePrix');
+
+Route::get('/boutique/event', 'ProduitController@TriBoutiqueEvent');
+
+Route::get('/boutique/notevent', 'ProduitController@TriBoutiqueNotEvent');
 
 Route::get('/conditions', function () {
     return view('conditions');

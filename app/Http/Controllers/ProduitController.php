@@ -30,21 +30,33 @@ class ProduitController extends Controller
         $produit = $produit->sortByDesc('nbr_de_vente');
         return view('toparticles')-> with('Produit', $produit);
 
-
-
-
-
     }
-    public function Id()
+    public function TriBoutiqueId()
     {
         $produit = Produit::all();
         $produit = $produit->sortBy('id_produit');
         return view('boutique')-> with('Produit', $produit);
-
-
     }
-
-
+    public function TriBoutiquePrix()
+    {
+        $produit = Produit::all();
+        $produit = $produit->sortBy('prix');
+        return view('boutique')-> with('Produit', $produit);
+    }
+    public function TriBoutiqueEvent()
+    {
+        
+        $produit = Produit::where('id_evenement','!=',0)->get();
+        return view('boutique')-> with('Produit', $produit);
+        
+    }
+    public function TriBoutiqueNotEvent()
+    {
+        
+        $produit = Produit::where('id_evenement','!=',0)->get();
+        return view('boutique')-> with('Produit', $produit);
+        
+    }
     public function create()
     {
         return view('createProduit');
