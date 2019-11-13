@@ -6,6 +6,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <style>
+        .navbar-inverse{
+            top: 0;
+
+        }
         .footer {
             position: fixed;
             left: 0;
@@ -14,5 +18,10 @@
             background-color: #101010;
             color: white;
             text-align: center;
+        }
+        #boxombre {
+            border: 1px solid;
+            padding: 10px;
+            box-shadow: 5px 10px 8px #888888;
         }
 </head>
