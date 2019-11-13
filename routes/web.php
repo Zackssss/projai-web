@@ -35,9 +35,11 @@ Route::get('/toparticles', function () {
     return view('toparticles');
 });
 
-Route::get('/boutique', 'ProduitListeController@index');
+Route::get('/boutique', 'ProduitController@index');
 
-Route::get('/produits', 'ProduitListeController@store')->name('produits');
+Route::get('/produits/{id}', 'ProduitController@store)')->name('produits');
+
+Route::get('/produits/{id_produit}', 'ProduitController@add')->name('cart');
 
 Route::get('/produitsuniques', function () {
     return view('produit_uniques');

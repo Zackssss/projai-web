@@ -2,17 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Cart;
 use App\Produit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class ProduitController extends Controller
 {
     public function index()
     {
-        
-        $produit = Produit::all();
-        return view('boutique')-> with('Produit', $produit);
-        
+        $produits = Produit::all();
+        return view('boutique')-> with('produits', $produits);
+    }
+
+    public function add(Request $request, $id_produit){
+        $produits = Produit::find($id_produit);
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->add($produits, $produits->id_produit);
+
+        $request->session()->put('cart', $cart);
+        dd($request->session()->get('cart'));
+        return redirect()->route('cart');
     }
 
     public function create()
@@ -32,7 +43,7 @@ class ProduitController extends Controller
          $produit->prix = request('prix');
          $produit->save();
          return "Produit sauvegardé !";
-     }*/ 
+     }*/
     public function store(Request $request)
     {
         $produit = $request->isMethod('put') ? Produit::findOrFail($request->id) : new Produit();
