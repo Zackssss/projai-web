@@ -3,13 +3,36 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Evenement;
+
+use App\Evenement as Evenement;
+
 
 class EvenementController extends Controller
 {
     public function create(){
 
         return view('createEvent');
+    }
+    public function EventCeMois()
+    {
+        $url = url()->full() ;
+    
+        $id=substr($url, -1);
+
+        
+
+        $Evenement = Evenement::where('evenements.id_evenement',$id)->leftjoin('images','evenements.id_evenement','=','images.id_evenement')
+        ->leftjoin('commentaires','images.id_image','=','commentaires.id_image')->get();
+        
+        
+
+        return view('event')-> with('Evenement', $Evenement);
+        
+    }
+    public function eventpassé(){
+
+        $event = Evenement::all();
+        return view('event_mois')-> with('Evenement', $event);
     }
    /*public function store(){
          Evenement::firstOrCreate([

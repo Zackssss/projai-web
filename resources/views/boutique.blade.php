@@ -21,6 +21,21 @@
 
 
 </body>
+@section('other nav')
+<ul class="nav navbar-nav">
+        
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="./boutique">Tri Boutique <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="/boutique/Id">Tri par id</a></li>
+                
+                <li><a href="/boutique/prix">Tri par prix</a></li>
+                <li><a href="/boutique/event">Lier à un evenement</a></li>
+                <li><a href="/boutique/notevent">Lier à aucun evenement</a></li>
+            </ul>
+        </li>
+       
+</ul>
+@endsection
 @section('content')
 
     @foreach ($Produit as $Produit)
