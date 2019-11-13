@@ -22,11 +22,7 @@
 
 </body>
 @section('content')
-<?php
-$desc= "D'ailleurs, il ne tardait pas à pas, en traînant ses pantoufles, et, s'appuyant de l'épaule contre Charles, elle continuait à marcher, les deux pieds sur les murs, et souriant de plaisir sous son voile, qui de son mari, le conjura de céder; il se.";
-$temp = substr($desc,-255,100);
-$desc = substr_replace($temp, '...',100,100) ;
-?>
+
 @foreach ($Produit as $Produit)
     
 
@@ -42,7 +38,7 @@ $desc = substr_replace($temp, '...',100,100) ;
     
                 </div>
     
-            <button type="button" class="btn btn-primary"><a href="./produits"> Plus d'info</a></button>  
+            <button type="button" class="btn btn-primary"><a href="./produits/{{$Produit-> id_produit}}"> Plus d'info</a></button>  
             
             <button type="button" class="btn btn-danger">Ajouter au Panier</button>  
                 

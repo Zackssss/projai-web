@@ -53,7 +53,7 @@ Route::get('/infoscontact', function () {
     return view('infoscontact');
 });
 
-Route::get('/produits/{id}', 'ProduitListeController@store)');
+Route::get('/produits/{id}', 'ProduitController@indexWithId');
 
 Route::get('/produitsuniques', function () {
     

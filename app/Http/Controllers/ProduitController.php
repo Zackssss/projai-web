@@ -14,7 +14,15 @@ class ProduitController extends Controller
         return view('boutique')-> with('Produit', $produit);
         
     }
-
+    public function indexWithId()
+    {
+        $url = url()->full() ;
+    
+        $id=substr($url, -1);
+        $produit = Produit::where('id_produit',$id)->get();
+        return view('produits')-> with('Produit', $produit);
+        
+    }
     public function create()
     {
         return view('createProduit');
