@@ -87,17 +87,41 @@ Event.updateEventById = function (id, event, result) {
 
     //Delete a event using his id
 Event.deleteEvent = function (id, result) {
-    lclsql.query("delete from evenement where id_evenement = ?",[id], function(err, res){
+    lclsql.query("Select id_image from image where id_evenement = ?",[id], function(err, res){
         if(err) {
             console.log("error: ", err);
             result(err, null);
         }
         else{
-           
-            result(null, res);
+            res.forEach(res => {
+                lclsql.query("Delete from commentaire where id_image = ?",res, function(err, res){
+                    if(err) {
+                        console.log("error: ", err);
+                        result(err, null);
+                    }
+                    else{
+                        lclsql.query("Delete from image where id_evenement = ?",[id], function(err, res){
+                            if(err) {
+                                console.log("error: ", err);
+                                result(err, null);
+                            }
+                            else{
+                                lclsql.query("delete from evenement where id_evenement = ?",[id], function(err, res){
+                                    if(err) {
+                                        console.log("error: ", err);
+                                        result(err, null);
+                                    }
+                                    else{
+                                       
+                                        result(null, res);
+                                    }
+                                })
+                            }
+                        })
+                    }
+                })
+            })
         }
     })
-    
 }
-
 module.exports = Event;

@@ -7,6 +7,7 @@ const productsRoutes = require('./api/routes/productroute');
 const usersRoutes = require('./api/routes/usersroute');
 const eventsRoutes = require('./api/routes/eventsroute');
 const comsRoutes = require('./api/routes/comsroute');
+const imgsRoute = require('./api/routes/imgroute');
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -28,6 +29,7 @@ app.use('/products', productsRoutes);
 app.use('/users', usersRoutes);
 app.use('/events', eventsRoutes);
 app.use('/coms', comsRoutes);
+app.use('/img', imgsRoute);
 
 
 
