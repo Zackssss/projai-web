@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <style>
         .navbar-inverse{
             top: 0;
@@ -23,7 +24,18 @@
             border: 1px solid;
             padding: 10px;
             box-shadow: 5px 10px 8px #888888;
+            width: 450px;
+            height: 1000px
         }
+        .texte {
+            padding-top: 10px;
+            font-family: 'Lato', sans-serif;
+        }
+        a, a:hover{
+            text-decoration: none;
+            color: inherit;
+        }
+        
         </style>
     <main class="py-4">
         @yield('content')

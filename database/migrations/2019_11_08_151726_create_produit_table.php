@@ -22,6 +22,7 @@ class CreateProduitTable extends Migration
             $table->float('prix');
             $table->integer('nbr_de_vente');
             $table->bigInteger('id_evenement')->unsigned()->index();
+            $table->string('url_image_produit');
             $table->timestamps();
         });
     }
