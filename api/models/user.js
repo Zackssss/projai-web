@@ -40,3 +40,5 @@ router.delete('/:usersId', (req, res, next) => {
         res.json({ message: 'User successfully deleted' });
       });
 });
+
+module.exports = User;
