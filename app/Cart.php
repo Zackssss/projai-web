@@ -31,4 +31,27 @@ class Cart extends Model
          $this->quantiteTotal++;
          $this->prixTotal += $item->prix;
     }
+
+    public function addIn($id){
+        $this->items[$id]['quantite']++;
+        $this->items[$id]['prix'] += $this->items[$id]['item']['prix'];
+        $this->quantiteTotal++;
+        $this->prixTotal += $this->items[$id]['item']['prix'];
+    }
+
+    public function reduce($id){
+         $this->items[$id]['quantite']--;
+         $this->items[$id]['prix'] -= $this->items[$id]['item']['prix'];
+         $this->quantiteTotal--;
+         $this->prixTotal -= $this->items[$id]['item']['prix'];
+
+         if ($this->items[$id]['quantite'] <= 0){
+             unset($this->items[$id]);
+         }
+    }
+    public function remove($id){
+        $this->quantiteTotal -= $this->items[$id]['quantite'];
+        $this->prixTotal -= $this->items[$id]['prix'];
+        unset($this->items[$id]);
+    }
 }

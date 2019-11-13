@@ -21,8 +21,8 @@
             </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Panier
-                    <span> class="badge">{{ \Illuminate\Support\Facades\Session::has('cart') ? \Illuminate\Support\Facades\Session::get('cart')->quantiteTotal : ''}}
+            <li><a href="{{route('shoppingCart')}}"><span class="glyphicon glyphicon-shopping-cart"></span> Panier
+                    <span class="badge">{{ \Illuminate\Support\Facades\Session::has('cart') ? \Illuminate\Support\Facades\Session::get('cart')->quantiteTotal : ''}}
                     </span>
                 </a>
             </li>
