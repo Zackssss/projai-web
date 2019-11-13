@@ -24,4 +24,8 @@
             padding: 10px;
             box-shadow: 5px 10px 8px #888888;
         }
+        </style>
+    <main class="py-4">
+        @yield('content')
+    </main>
 </head>

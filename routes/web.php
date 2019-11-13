@@ -45,7 +45,7 @@ Route::get('/boutique', function () {
 });
 
 Route::get('/toparticles', function () {
-    return view('top_articles');
+    return view('toparticles');
 });
 
 Route::get('/produits', function () {
