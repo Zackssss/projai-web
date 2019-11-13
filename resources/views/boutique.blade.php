@@ -29,7 +29,7 @@ $desc = substr_replace($temp, '...',100,100) ;
 ?>
 <div class="col-12 col-md-6 col-lg-4">
     <div id="boxombre">
-        <img src="https://lorempixel.com/100/200/animals/?2741..." alt="photo">
+        <img src="https://lorempixel.com/60/100/animals/?2741..." alt="photo">
             <div class="texte">
                 <div>N° Produit = </div>
                 <div>Nom Produit =</div>
@@ -38,148 +38,12 @@ $desc = substr_replace($temp, '...',100,100) ;
                 <div>N° Evenement associer = </div>
 
             </div>
-        <button type="button" class="btn btn-primary"><a href="/produits"> Plus d'info</a></button>  
+        <button type="button" class="btn btn-primary"><a href="./produits"> Plus d'info</a></button>  
         
         <button type="button" class="btn btn-danger">Ajouter au Panier</button>  
             
     </div>
 </div>
-<div class="col-12 col-md-6 col-lg-4">
-        <div id="boxombre">
-            <img src="https://lorempixel.com/100/200/animals/?2741..." alt="photo">
-                <div class="texte">
-                    <div>N° Produit = </div>
-                    <div>Nom Produit =</div>
-                    <div>Description = <?php echo($desc) ?></div>
-                    <div>Prix =    € Nombre de vente = </div>
-                    <div>N° Evenement associer = </div>
-    
-                </div>
-            <button type="button" class="btn btn-primary"><a href="/produits"> Plus d'info</a></button>  
-            
-            <button type="button" class="btn btn-danger">Ajouter au Panier</button>  
-                
-        </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-            <div id="boxombre">
-                <img src="https://lorempixel.com/100/200/animals/?2741..." alt="photo">
-                    <div class="texte">
-                        <div>N° Produit = </div>
-                        <div>Nom Produit =</div>
-                        <div>Description = <?php echo($desc) ?></div>
-                        <div>Prix =    € Nombre de vente = </div>
-                        <div>N° Evenement associer = </div>
-        
-                    </div>
-                <button type="button" class="btn btn-primary"><a href="/produits"> Plus d'info</a></button>  
-                
-                <button type="button" class="btn btn-danger">Ajouter au Panier</button>  
-                    
-            </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-                <div id="boxombre">
-                    <img src="https://lorempixel.com/100/200/animals/?2741..." alt="photo">
-                        <div class="texte">
-                            <div>N° Produit = </div>
-                            <div>Nom Produit =</div>
-                            <div>Description = <?php echo($desc) ?></div>
-                            <div>Prix =    € Nombre de vente = </div>
-                            <div>N° Evenement associer = </div>
-            
-                        </div>
-                    <button type="button" class="btn btn-primary"><a href="/produits"> Plus d'info</a></button>  
-                    
-                    <button type="button" class="btn btn-danger">Ajouter au Panier</button>  
-                        
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-                    <div id="boxombre">
-                        <img src="https://lorempixel.com/100/200/animals/?2741..." alt="photo">
-                            <div class="texte">
-                                <div>N° Produit = </div>
-                                <div>Nom Produit =</div>
-                                <div>Description = <?php echo($desc) ?></div>
-                                <div>Prix =    € Nombre de vente = </div>
-                                <div>N° Evenement associer = </div>
-                
-                            </div>
-                        <button type="button" class="btn btn-primary"><a href="/produits"> Plus d'info</a></button>  
-                        
-                        <button type="button" class="btn btn-danger">Ajouter au Panier</button>  
-                            
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                        <div id="boxombre">
-                            <img src="https://lorempixel.com/100/200/animals/?2741..." alt="photo">
-                                <div class="texte">
-                                    <div>N° Produit = </div>
-                                    <div>Nom Produit =</div>
-                                    <div>Description = <?php echo($desc) ?></div>
-                                    <div>Prix =    € Nombre de vente = </div>
-                                    <div>N° Evenement associer = </div>
-                    
-                                </div>
-                            <button type="button" class="btn btn-primary"><a href="/produits"> Plus d'info</a></button>  
-                            
-                            <button type="button" class="btn btn-danger">Ajouter au Panier</button>  
-                                
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                            <div id="boxombre">
-                                <img src="https://lorempixel.com/100/200/animals/?2741..." alt="photo">
-                                    <div class="texte">
-                                        <div>N° Produit = </div>
-                                        <div>Nom Produit =</div>
-                                        <div>Description = <?php echo($desc) ?></div>
-                                        <div>Prix =    € Nombre de vente = </div>
-                                        <div>N° Evenement associer = </div>
-                        
-                                    </div>
-                                <button type="button" class="btn btn-primary"><a href="/produits"> Plus d'info</a></button>  
-                                
-                                <button type="button" class="btn btn-danger">Ajouter au Panier</button>  
-                                    
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-4">
-                                <div id="boxombre">
-                                    <img src="https://lorempixel.com/100/200/animals/?2741..." alt="photo">
-                                        <div class="texte">
-                                            <div>N° Produit = </div>
-                                            <div>Nom Produit =</div>
-                                            <div>Description = <?php echo($desc) ?></div>
-                                            <div>Prix =    € Nombre de vente = </div>
-                                            <div>N° Evenement associer = </div>
-                            
-                                        </div>
-                                    <button type="button" class="btn btn-primary"><a href="/produits"> Plus d'info</a></button>  
-                                    
-                                    <button type="button" class="btn btn-danger">Ajouter au Panier</button>  
-                                        
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-4">
-                                    <div id="boxombre">
-                                        <img src="https://lorempixel.com/100/200/animals/?2741..." alt="photo">
-                                            <div class="texte">
-                                                <div>N° Produit = </div>
-                                                <div>Nom Produit =</div>
-                                                <div>Description = <?php echo($desc) ?></div>
-                                                <div>Prix =    € Nombre de vente = </div>
-                                                <div>N° Evenement associer = </div>
-                                
-                                            </div>
-                                        <button type="button" class="btn btn-primary"><a href="/produits"> Plus d'info</a></button>  
-                                        
-                                        <button type="button" class="btn btn-danger">Ajouter au Panier</button>  
-                                            
-                                    </div>
-                                </div>
 
 
 

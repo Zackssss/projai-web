@@ -4,7 +4,7 @@
             <a class="navbar-brand" href="#">BDE CESI Strasbourg</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#">L'accueil</a></li>
+            <li class="active"><a href="./">L'accueil</a></li>
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="./boutique">La Boutique <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a href="./boutique">Boutique</a></li>
