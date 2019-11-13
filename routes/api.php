@@ -13,10 +13,21 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+/*Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-});
-Route::get('produits','WorkshopController@index');
+});*/
+
+Route::get('users','RegisterController@index');
+
+Route::get('user/{id}','RegisterController@show');
+
+Route::post('user','RegisterController@store');
+
+Route::put('user/{id}','RegisterController@store');
+
+Route::delete('user','RegisterController@destroy');
+
+Route::get('produits','ProduitController@index');
 
 Route::get('produit/{id}','ProduitController@show');
 
