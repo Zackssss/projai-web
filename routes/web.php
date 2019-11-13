@@ -36,7 +36,7 @@ Route::get('/boutique', function () {
 });
 
 Route::get('/toparticles', function () {
-    return view('top_articles');
+    return view('toparticles');
 });
 
 Route::get('/produits', function () {
@@ -44,7 +44,7 @@ Route::get('/produits', function () {
 });
 
 Route::get('/produitsuniques', function () {
-    return view('produits_uniques');
+    return view('produit_uniques');
 });
 
 Route::get('/createProduit', 'ProduitController@create');

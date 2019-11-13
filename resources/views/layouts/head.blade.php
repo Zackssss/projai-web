@@ -1,11 +1,16 @@
 <head>
-    <title>Bootstrap Example</title>
+    <title>Site du BDE</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <style>
+        .navbar-inverse{
+            top: 0;
+
+        }
         .footer {
             position: fixed;
             left: 0;
@@ -14,9 +19,33 @@
             background-color: #101010;
             color: white;
             text-align: center;
+            z-index: 99;
         }
-</style>
+        #boxombre {
+            border: 1px solid;
+            padding: 10px;
+            box-shadow: 5px 10px 8px #888888;
+            width: 40%;
+            height: auto;
+        }
+        .texte {
+            padding-top: 10px;
+            font-family: 'Lato', sans-serif;
+        }
+        a, a:hover{
+            text-decoration: none;
+            color: inherit;
+        }
+        .btn{
+            padding: 5px;
+        }
+        .col-12, .col-md-6, .col-lg-4 {
+            padding: 15;
+
+        }
+        
+        </style>
+    <main class="py-4">
+        @yield('content')
+    </main>
 </head>
-<main class="py-sm-5 d-inline-block" >
-    @yield('content')
-</main>
