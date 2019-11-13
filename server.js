@@ -1,10 +1,9 @@
 const http = require('http');
 const app = require('./app');
-const lclsql = require('./BDDConnectionLocal');
-const usrsql = require('./BDDConnectionUser');
+const sql = require('./api/models/MySqlCo');
 
 const port = process.env.PORT || 8080;
 
-const server = http.createServer(app, usrsql, lclsql);
+const server = http.createServer(app, sql);
 
 server.listen(port);
