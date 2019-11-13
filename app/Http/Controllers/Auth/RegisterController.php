@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -68,5 +69,30 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    public function store(Request $request)
+    {
+        $user = $request->isMethod('put') ? User::findOrFail($request->id) : new User;
+        $user->id = $request->input('id');
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = $request->input('password');
+
+        if ($user->save()) {
+            return new User($user);
+        }
+    }
+    public function show($id)
+    {
+        $user = User::findOrFail($id);
+
+        return new User($user);
+    }
+    public function destroy($id)
+    {
+        $user = User::findOrFail($id);
+
+        return new User($user);
     }
 }
