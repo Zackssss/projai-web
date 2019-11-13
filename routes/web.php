@@ -31,24 +31,9 @@ Route::get('/eventmois', function () {
     return view('event_mois');
 });
 
-/*Route::get('/boutique', function () {
-    return view('boutique');
-});*/
-
-/*Route::get('/toparticles', function () {
+Route::get('/toparticles', function () {
     return view('toparticles');
-});*/
-Route::get('/toparticles', 'ProduitController@indextop3');
-
-Route::get('/boutique', 'ProduitController@index');
-
-Route::get('/boutique/Id', 'ProduitController@TriBoutiqueId');
-
-Route::get('/boutique/prix', 'ProduitController@TriBoutiquePrix');
-
-Route::get('/boutique/event', 'ProduitController@TriBoutiqueEvent');
-
-Route::get('/boutique/notevent', 'ProduitController@TriBoutiqueNotEvent');
+});
 
 Route::get('/conditions', function () {
     return view('conditions');
@@ -62,12 +47,19 @@ Route::get('/infoscontact', function () {
     return view('infoscontact');
 });
 
+Route::get('/boutique', 'ProduitController@index') ->name ('boutique');
+
 Route::get('/produits/{id}', 'ProduitController@indexWithId');
 
-Route::get('/produitsuniques', function () {
-    
-    return view('produit_uniques');
-});
+Route::get('/cart/{id}', 'ProduitController@addCart') ->name ('addCart');
+
+Route::get('/add/{id}', 'ProduitController@addInCart') ->name ('addInCart');
+
+Route::get('/reduce/{id}', 'ProduitController@reduceCart') ->name ('reduceCart');
+
+Route::get('/remove/{id}', 'ProduitController@removeCart') ->name ('removeCart');
+
+Route::get('/shopping-cart', 'ProduitController@shoppingCart') ->name ('shoppingCart');
 
 Route::get('/createProduit', 'ProduitController@create');
 

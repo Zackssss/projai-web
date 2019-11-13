@@ -22,6 +22,11 @@
         </ul>
         @yield('other nav')
         <ul class="nav navbar-nav navbar-right">
+            <li><a href="{{route('shoppingCart')}}"><span class="glyphicon glyphicon-shopping-cart"></span> Panier
+                    <span class="badge">{{ \Illuminate\Support\Facades\Session::has('cart') ? \Illuminate\Support\Facades\Session::get('cart')->quantiteTotal : ''}}
+                    </span>
+                </a>
+            </li>
             <li><a href="#"><span class="glyphicon glyphicon-user"></span> S'inscrire</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Se connecter</a></li>
         </ul>
