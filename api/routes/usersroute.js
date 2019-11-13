@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 var User = require('../models/userModel');
-
+  //aled
     //get user
 router.get('/', (req, res, next) => {
     User.getAllUsers(function(err, user) {
