@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
         foreach(range(1,10)as $index){
             DB::table('produit')->insert([
                 'nom_produit' => $faker->name,
-                'description_produit' => $faker->realText($maxNbChars=50),
+                'description_produit' => $faker->realText($maxNbChars=255),
                 'prix' => $faker->numberBetween(1,20),
                 'nbr_de_vente'=> $faker->numberBetween(1,50),
                 'id_evenement'=> $faker->numberBetween(0,5),
