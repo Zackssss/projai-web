@@ -18,20 +18,20 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::get('produits','WorkshopController@index');
 
-Route::get('produit','ProduitController@show');
+Route::get('produit/{id}','ProduitController@show');
 
 Route::post('produit','ProduitController@store');
 
-Route::put('produit','ProduitController@store');
+Route::put('produit/{id}','ProduitController@store');
 
 Route::delete('produit','ProduitController@destroy');
 
 Route::get('evenements','EvenementController@index');
 
-Route::get('evenement','EvenementController@show');
+Route::get('evenement/{id}','EvenementController@show');
 
 Route::post('evenement','EvenementController@store');
 
-Route::put('evenement','EvenementController@store');
+Route::put('evenement/{id}','EvenementController@store');
 
 Route::delete('evenement','EvenementController@destroy');
