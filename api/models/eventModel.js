@@ -93,35 +93,32 @@ Event.deleteEvent = function (id, result) {
             result(err, null);
         }
         else{
-            res.forEach(res => {
-                lclsql.query("Delete from commentaire where id_image = ?",res, function(err, res){
+            for(let [key, id_image] of Object.entries(res)) {
+                lclsql.query("Delete from commentaire where id_image = ?",id_image, function(err, res){
                     if(err) {
                         console.log("error: ", err);
                         result(err, null);
                     }
-                    else{
-                        lclsql.query("Delete from image where id_evenement = ?",[id], function(err, res){
-                            if(err) {
-                                console.log("error: ", err);
-                                result(err, null);
-                            }
-                            else{
-                                lclsql.query("delete from evenement where id_evenement = ?",[id], function(err, res){
-                                    if(err) {
-                                        console.log("error: ", err);
-                                        result(err, null);
-                                    }
-                                    else{
-                                       
-                                        result(null, res);
-                                    }
-                                })
-                            }
-                        })
+                })
+            }
+        lclsql.query("Delete from image where id_evenement = ?",[id], function(err, res){
+            if(err) {
+                console.log("error: ", err);
+                result(err, null);
+            }
+            else{
+                lclsql.query("delete from evenement where id_evenement = ?",[id], function(err, res){
+                    if(err) {
+                        console.log("error: ", err);
+                        result(err, null);
+                    }
+                    else{           
+                        result(null, res);
                     }
                 })
-            })
-        }
-    })
+            }
+        })
+    }          
+})
 }
 module.exports = Event;
