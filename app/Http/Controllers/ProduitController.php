@@ -25,7 +25,15 @@ class ProduitController extends Controller
         dd($request->session()->get('cart'));
         return redirect()->route('cart');
     }
-
+    public function indexWithId()
+    {
+        $url = url()->full() ;
+    
+        $id=substr($url, -1);
+        $produit = Produit::where('id_produit',$id)->get();
+        return view('produits')-> with('Produit', $produit);
+        
+    }
     public function create()
     {
         return view('createProduit');

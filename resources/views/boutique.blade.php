@@ -22,34 +22,31 @@
 
 </body>
 @section('content')
-<?php
-$desc= "D'ailleurs, il ne tardait pas à pas, en traînant ses pantoufles, et, s'appuyant de l'épaule contre Charles, elle continuait à marcher, les deux pieds sur les murs, et souriant de plaisir sous son voile, qui de son mari, le conjura de céder; il se.";
-$temp = substr($desc,-255,100);
-$desc = substr_replace($temp, '...',100,100) ;
-?>
 
-@foreach ($produits as $produit)
+@foreach ($Produit as $Produit)
+    
 
 <div class="col-12 col-md-6 col-lg-4">
-    <div id="boxombre">
-        <img src="https://lorempixel.com/100/200/animals/?2741..." alt="photo">
-        <div class="texte">
-            <div>N° Produit = {{$produit-> id_produit}} </div>
-            <div>Nom Produit = {{$produit-> nom_produit}}</div>
-            <div>Description = {{$produit-> description_produit}}</div>
-            <div>Prix = {{$produit-> prix}}€  Nombre de Vente = {{$produit-> nbr_de_vente}}</div>
-            <div>N° Evenement associer = {{$produit-> id_evenement}}</div>
+        <div id="boxombre">
+            <img src="{{$Produit-> url_image_produit}}" alt="photo">
+                <div class="texte">
+                    <div>N° Produit = {{$Produit-> id_produit}} </div>
+                    <div>Nom Produit = {{$Produit-> nom_produit}}</div>
+                    <div>Description = {{$Produit-> description_produit}}</div>
+                    <div>Prix = {{$Produit-> prix}}€  Nombre de Vente = {{$Produit-> nbr_de_vente}}</div>
+                    <div>N° Evenement associer = {{$Produit-> id_evenement}}</div>
+    
+                </div>
+    
+            <button type="button" class="btn btn-primary"><a href="./produits/{{$Produit-> id_produit}}"> Plus d'info</a></button>  
+            
+            <button type="button" class="btn btn-danger">Ajouter au Panier</button>  
+                
         </div>
-        <button type="button" class="btn btn-primary">
-
-        </button>
-
-        <button type="button" class="btn btn-danger">
-            <a href="{{route('produitsCard', ['id_produit' => $produits->id_produit])}}">Ajouter au Panier</a>
-        </button>
     </div>
-</div>
+    
 @endforeach
+
 
 
 @endsection
