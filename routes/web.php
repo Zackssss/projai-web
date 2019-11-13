@@ -56,6 +56,18 @@ Route::get('/produitsuniques', function () {
     return view('produit_uniques');
 });
 
+Route::get('/cookies', function () {
+    return view('cookies');
+});
+
+Route::get('/infoscontact', function () {
+    return view('infoscontact');
+});
+
+Route::get('/conditions', function () {
+    return view('conditions');
+});
+
 /*Route::get('/creationevent', function () {
     return view('creation_event');
 })->middleware('admin');

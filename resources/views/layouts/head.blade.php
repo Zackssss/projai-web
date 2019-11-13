@@ -11,6 +11,14 @@
             top: 0;
 
         }
+
+        .logofooter{
+            position: fixed;
+            bottom: 2px;
+            left: 2px;
+            z-index: 100;
+        }
+
         .footer {
             position: fixed;
             left: 0;
@@ -43,7 +51,7 @@
             padding: 15;
 
         }
-        
+
         </style>
     <main class="py-4">
         @yield('content')
