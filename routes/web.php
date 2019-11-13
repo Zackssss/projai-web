@@ -47,7 +47,12 @@ Route::get('/infoscontact', function () {
     return view('infoscontact');
 });
 
-Route::get('/boutique', 'ProduitController@index') ->name ('boutique');
+Route::get('/boutique/Id', 'ProduitController@Id');
+Route::get('/boutique/Id', 'ProduitController@TriBoutiqueId');
+Route::get('/boutique/prix', 'ProduitController@TriBoutiquePrix');
+Route::get('/boutique/event', 'ProduitController@TriBoutiqueEvent');
+Route::get('/boutique/notevent', 'ProduitController@TriBoutiqueNotEvent');
+Route::get('/toparticles', 'ProduitController@indextop3');
 
 Route::get('/produits/{id}', 'ProduitController@indexWithId');
 
