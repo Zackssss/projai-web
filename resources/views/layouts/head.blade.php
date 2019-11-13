@@ -11,6 +11,14 @@
             top: 0;
 
         }
+
+        .logofooter{
+            position: fixed;
+            bottom: 2px;
+            left: 2px;
+            z-index: 100;
+        }
+
         .footer {
             position: fixed;
             left: 0;
@@ -25,8 +33,8 @@
             border: 1px solid;
             padding: 10px;
             box-shadow: 5px 10px 8px #888888;
-            width: 40%;
-            height: auto;
+            width: 100%;
+            height: 100%;
         }
         .texte {
             padding-top: 10px;
@@ -40,10 +48,13 @@
             padding: 5px;
         }
         .col-12, .col-md-6, .col-lg-4 {
-            padding: 15;
-
+            padding: 1%;
+            
         }
-        
+        body{
+            margin-bottom: 25%;
+        }
+
         </style>
     <main class="py-4">
         @yield('content')

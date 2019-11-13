@@ -27,7 +27,7 @@ Route::put('user/{id}','RegisterController@store');
 
 Route::delete('user','RegisterController@destroy');
 
-Route::get('produits','ProduitController@index');
+Route::get('localhost:8080/products','ProduitController@index');
 
 Route::get('produit/{id}','ProduitController@show');
 
