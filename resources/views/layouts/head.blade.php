@@ -19,13 +19,14 @@
             background-color: #101010;
             color: white;
             text-align: center;
+            z-index: 99;
         }
         #boxombre {
             border: 1px solid;
             padding: 10px;
             box-shadow: 5px 10px 8px #888888;
-            width: 450px;
-            height: 1000px
+            width: 40%;
+            height: auto;
         }
         .texte {
             padding-top: 10px;
@@ -34,6 +35,13 @@
         a, a:hover{
             text-decoration: none;
             color: inherit;
+        }
+        .btn{
+            padding: 5px;
+        }
+        .col-12, .col-md-6, .col-lg-4 {
+            padding: 15;
+
         }
         
         </style>
