@@ -12,8 +12,8 @@ var User = function(user){
 User.findAUser = function (usermail, result) {
     sql.query("SELECT mail FROM user WHERE mail = ? ",usermail, function(err, res){
         if(err) {
-            console.log("error: ", err);
-            result(err, null);
+            console.log(res);
+            result(null, null);
         }
         else{
             console.log(res);
@@ -37,5 +37,18 @@ User.createUser = function (newuser, result) {
         
 }
 
+User.deleteUser = function (id, result) {
+    usrsql.query("delete from user where user_id = ?",[id], function(err, res){
+        if(err) {
+            console.log("error: ", err);
+            result(err, null);
+        }
+        else{
+           
+            result(null, res);
+        }
+    })
+    
+}
 
 module.exports = User;

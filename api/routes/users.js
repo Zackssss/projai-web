@@ -4,14 +4,14 @@ var User = require('../models/user');
 const bcrypt = require('bcrypt');
  
 
-router.get('/register', (req, res, next) => {
+router.post('/register', (req, res, next) => {
     User.findAUser(req.body.mail, function(err, user) {
         if (err) {
             res.send(err);
         }
-        if (res(mail) = req.body.mail){
+        if (user.mail){
             return res.status(409).json({
-                message: "mail exists"
+                message: "mail allready exists"
             });
         }
         else{
@@ -27,11 +27,43 @@ router.get('/register', (req, res, next) => {
             })
         }
     }); 
-})
+});
 
-router.get('/login', (req, res, next) => {
+router.post('/login', (req, res, next) => {
+    User.findAUser(req.body.mail, function(err, user) {
+        if (err) {
+            res.send(err);
+        }
+        if (user.mail){
+            bcrypt.compare(req.body.password, user.password, (err, result) => {
+                if (err){
+                    return res.status(401).json({
+                        message: "auth failed"
+                    }); 
+                }
+                if (result){
+                    return res.status.json({
+                        message: 'Auth successful'
+                    })
+                }
+            })
+        }
+        else{
+            return res.status(401).json({
+                message: "auth failed"
+            });            
+        }
+    });
 
+});
 
-})
+    //delete user by id
+router.delete('/:usersId', (req, res, next) => {
+    User.deleteUser( req.params.usersId, function(err, user) {
+        if (err)
+          res.send(err);
+        res.json({ message: 'User successfully deleted' });
+      });
+});
 
 module.exports = router;
