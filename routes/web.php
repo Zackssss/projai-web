@@ -41,6 +41,20 @@ Route::get('/toparticles', function () {
 
 Route::get('/boutique', 'ProduitController@index');
 
+Route::get('/conditions', function () {
+    return view('conditions');
+});
+
+Route::get('/cookies', function () {
+    return view('cookies');
+});
+
+Route::get('/infoscontact', function () {
+    return view('infoscontact');
+});
+
+Route::get('/produits/{id}', 'ProduitListeController@store)');
+
 Route::get('/produitsuniques', function () {
     
     return view('produit_uniques');
