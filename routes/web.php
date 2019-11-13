@@ -23,9 +23,9 @@ Route::get('/panier', function () {
     return view('panier');
 });
 
-Route::get('/eventspasses', function () {
-    return view('events_passes');
-});
+Route::get('/eventspasses', 'EvenementController@Eventpassé');
+
+Route::get('/evenements/{id}', 'EvenementController@eventcemois');
 
 Route::get('/eventmois', function () {
     return view('event_mois');

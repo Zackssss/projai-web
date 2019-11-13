@@ -20,7 +20,8 @@ class ProduitController extends Controller
     
         $id=substr($url, -1);
         $produit = Produit::where('id_produit',$id)->get();
-        return view('produits')-> with('Produit', $produit);
+        
+        return view('produits')-> with('Produit', $produit)->with();
         
     }
 

@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
             ]);}
             foreach(range(1,10)as $index){
                 DB::table('images')->insert([
-                    'chemin' => $faker->imageUrl($width = 400, $height = 600, 'animals', true, 'Faker') ,
+                    'chemin' => $faker->imageUrl($width = 100, $height = 200, 'animals', true, 'Faker') ,
                     'visibilite_image' => 1,
                     'appréciation' => $faker->numberBetween(1,20),
                     'user_id_createur_img'=> $faker->numberBetween(1,50),
@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
                     'texte' => $faker->realText($maxNbChars=50) ,
                     'visibilite_commentaire' =>1,
                     'user_id_createur_com' => $faker->numberBetween(1,20),
-                    'id_image'=> $faker->numberBetween(1,50),
+                    'id_image'=> $faker->numberBetween(1,10),
                     
                         
                 ]);}
