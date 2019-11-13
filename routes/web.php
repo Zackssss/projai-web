@@ -35,11 +35,14 @@ Route::get('/eventmois', function () {
     return view('boutique');
 });*/
 
-Route::get('/toparticles', function () {
+/*Route::get('/toparticles', function () {
     return view('toparticles');
-});
+});*/
+Route::get('/toparticles', 'ProduitController@indextop3');
 
 Route::get('/boutique', 'ProduitController@index');
+
+Route::get('/boutique/Id', 'ProduitController@Id');
 
 Route::get('/conditions', function () {
     return view('conditions');

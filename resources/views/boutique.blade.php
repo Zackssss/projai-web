@@ -14,17 +14,35 @@
 
 </header>
 
+<style>
 
+
+</style>
 <body>
 
 
 
 
 </body>
+@section('other nav')
+<ul class="nav navbar-nav">
+        
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="./boutique">Tri Boutique <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="/boutique/Id">Tri par id</a></li>
+                
+                <li><a href="/produitsuniques">Nos produits uniques</a></li>
+                <li><a href="/toparticles">Nos articles les plus vendus</a></li>
+            </ul>
+        </li>
+       
+</ul>
+@endsection
 @section('content')
 
 @foreach ($Produit as $Produit)
     
+
 
 <div class="col-12 col-md-6 col-lg-4">
         <div id="boxombre">
