@@ -53,9 +53,9 @@
 
                 </div>
 
-                <button type="button" class="btn btn-primary"><a href="./produits/{{$Produit-> id_produit}}"> Plus d'info</a></button>
+                <button type="button" class="btn btn-primary"><a href="/produits/{{$Produit-> id_produit}}"> Plus d'info</a></button>
 
-                <button type="button" class="btn btn-danger"><a href="./cart/{{$Produit-> id_produit}}"> Ajouter au panier</a></button>
+                <button type="button" class="btn btn-danger"><a href="/cart/{{$Produit-> id_produit}}"> Ajouter au panier</a></button>
 
             </div>
         </div>

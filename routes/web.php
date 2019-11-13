@@ -31,9 +31,6 @@ Route::get('/eventmois', function () {
     return view('event_mois');
 });
 
-Route::get('/toparticles', function () {
-    return view('toparticles');
-});
 
 Route::get('/conditions', function () {
     return view('conditions');
@@ -48,7 +45,6 @@ Route::get('/infoscontact', function () {
 });
 
 Route::get('/boutique', 'ProduitController@Id');
-Route::get('/boutique/{id}', 'ProduitController@TriBoutiqueId');
 Route::get('/boutique/prix', 'ProduitController@TriBoutiquePrix');
 Route::get('/boutique/event', 'ProduitController@TriBoutiqueEvent');
 Route::get('/boutique/notevent', 'ProduitController@TriBoutiqueNotEvent');

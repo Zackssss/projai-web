@@ -50,6 +50,7 @@ class ProduitController extends Controller
         $produit = $produit->sortBy('prix');
         return view('boutique')-> with('Produit', $produit);
     }
+    
     public function TriBoutiqueEvent()
     {
         
