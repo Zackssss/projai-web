@@ -11,19 +11,19 @@ class ProduitListeController extends Controller
 {
     public function index()
     {
-        $produit = Produit::all();
-        return view('boutique', ['produit' => $produit]);
+        $produits = Produit::all();
+        return view('boutique', ['produits' => $produits]);
     }
 
-    public function store(Request $request, $id){
-        $produit = Produit::find($id);
+    public function store(Request $request){
+        //$produits = Produit::find($id);//
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
-        $cart->add($produit, $produit->id);
+        //$cart->add($produits, $produits->id);//
 
         $request->session()->put('cart', $cart);
         dd($request->session()->get('cart'));
-        return redirect()->route('produit');
+        return redirect()->route('produits');
     }
 
 }

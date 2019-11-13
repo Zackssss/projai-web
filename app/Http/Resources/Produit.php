@@ -20,6 +20,7 @@ class Produit extends Resource
             'nom_produit' => $this->nom_produit,
             'description_produit' => $this->description_produit,
             'prix' => $this->prix,
+
         ];
     }
 }

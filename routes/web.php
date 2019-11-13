@@ -31,15 +31,13 @@ Route::get('/eventmois', function () {
     return view('event_mois');
 });
 
-Route::get('/boutique', function () {
-    return view('boutique');
-});
-
 Route::get('/toparticles', function () {
     return view('toparticles');
 });
 
-Route::get('/produits/{id}', 'ProduitListeController@store)');
+Route::get('/boutique', 'ProduitListeController@index');
+
+Route::get('/produits', 'ProduitListeController@store')->name('produits');
 
 Route::get('/produitsuniques', function () {
     return view('produit_uniques');

@@ -14,8 +14,8 @@ class AddForeignkey extends Migration
      */
     public function up()
     {
-        
-        
+
+
         Schema::table('image',function(Blueprint $table){
             $table->foreign('id_evenement')
             ->references('id_evenement')
@@ -23,7 +23,7 @@ class AddForeignkey extends Migration
             ->onDelete('cascade');
         });
 
-        Schema::table('produit',function(Blueprint $table){
+        Schema::table('produits',function(Blueprint $table){
             $table->foreign('id_evenement')
             ->references('id_evenement')
             ->on('produit')
@@ -50,7 +50,7 @@ class AddForeignkey extends Migration
 
 
 
-      
+
         }
 
     /**
@@ -60,6 +60,6 @@ class AddForeignkey extends Migration
      */
     public function down()
     {
-        
+
     }
 }
