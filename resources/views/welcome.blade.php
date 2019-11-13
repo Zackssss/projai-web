@@ -7,7 +7,7 @@
    <body>
 @section('content')
     <div class="container">
-        <h2>Carousel Example</h2>
+        <h1>Bienvenue sur le site du BDE CESI !!!</h1>
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
@@ -20,26 +20,26 @@
             <div class="carousel-inner">
 
                 <div class="item active">
-                    <img src="la.jpg" alt="Los Angeles" style="width:100%;">
+                    <img src="https://www.cesi.fr/wp-content/uploads/2018/11/logo-CESI.png" alt="logo CESI" style="width:100%;">
                     <div class="carousel-caption">
-                        <h3>Los Angeles</h3>
-                        <p>LA is always so much fun!</p>
+                        <h3>Le CESI</h3>
+                        <p2>Une école pour tous</p2>
                     </div>
                 </div>
 
                 <div class="item">
-                    <img src="chicago.jpg" alt="Chicago" style="width:100%;">
+                    <img src="https://praticampus.fr/uploads/ckeditor/pictures/123/content_CESI_Inge.gif" alt="Chicago" style="width:97%;">
                     <div class="carousel-caption">
-                        <h3>Chicago</h3>
-                        <p>Thank you, Chicago!</p>
+                        <h3>Le parcours EI</h3>
+                        <p2>Pour la formation d'ingénieurs</p2>
                     </div>
                 </div>
 
                 <div class="item">
-                    <img src="ny.jpg" alt="New York" style="width:100%;">
+                    <img src="https://rouen.cesi.fr/wp-content/uploads/sites/12/2018/11/Cesi_Logo_ALTERNANCE_RVB.png" alt="New York" style="width:59%;">
                     <div class="carousel-caption">
-                        <h3>New York</h3>
-                        <p>We love the Big Apple!</p>
+                        <h3>Le parcours alternance</h3>
+                        <p2>Pour ceux qui préfèrent être sur le terrain</p2>
                     </div>
                 </div>
 
