@@ -1,23 +1,14 @@
-@extends('layouts.app')
+        <h1>Création d'évènement</h1>
 
-@section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('create_evenement') }}</div>
-
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('create_evenement') }}">
-                            @csrf
-
+                            <form action="" method="post">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="form-group row">
                                 <label for="nom_evenement" class="col-md-4 col-form-label text-md-right">{{ __('Nom') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="nom_evenement" type="text" class="form-control @error('nom_evenement') is-invalid @enderror" name="nom_evenement" value="{{ old('nom_evenement') }}" required autocomplete="nom_evenement" autofocus>
 
-                                    @error('nom_evenement)
+                                    @error('nom_evenement')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -94,10 +85,7 @@
                                     @enderror
                                 </div>
                             </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-@endsection
+                                <div class="form-group">
+                                    <button type = "submit" class="btn btn-success">Enregistrer</button>
+                                </div>
+                            </form>

@@ -15,17 +15,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
 Route::get('/', function () {
     return view('welcome');
-});
-
-Route::get('/connexion', function () {
-    return view('connexion');
-});
-
-Route::get('/inscription', function () {
-    return view('inscription');
 });
 
 Route::get('/panier', function () {
@@ -48,25 +39,20 @@ Route::get('/toparticles', function () {
     return view('toparticles');
 });
 
-Route::get('/produits', function () {
-    return view('produits');
-});
+Route::get('/produits/{id}', 'ProduitListeController@store)');
 
 Route::get('/produitsuniques', function () {
     return view('produit_uniques');
 });
 
-Route::get('/cookies', function () {
-    return view('cookies');
-});
+Route::get('/createProduit', 'ProduitController@create');
 
-Route::get('/infoscontact', function () {
-    return view('infoscontact');
-});
+Route::post('/createProduit', 'ProduitController@store');
 
-Route::get('/conditions', function () {
-    return view('conditions');
-});
+Route::get('/createEvent', 'EvenementController@create');
+
+Route::post('/createEvent', 'EvenementController@store');
+
 
 /*Route::get('/creationevent', function () {
     return view('creation_event');

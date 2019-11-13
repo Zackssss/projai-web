@@ -48,8 +48,11 @@
             padding: 5px;
         }
         .col-12, .col-md-6, .col-lg-4 {
-            padding: 15;
-
+            padding: 1%;
+            
+        }
+        body{
+            margin-bottom: 25%;
         }
 
         </style>
