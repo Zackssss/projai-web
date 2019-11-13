@@ -53,7 +53,7 @@ Route::get('/produits', function () {
 });
 
 Route::get('/produitsuniques', function () {
-    return view('produits_uniques');
+    return view('produit_uniques');
 });
 
 /*Route::get('/creationevent', function () {

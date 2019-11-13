@@ -9,14 +9,14 @@
                 <ul class="dropdown-menu">
                     <li><a href="./boutique">Boutique</a></li>
                     <li><a href="./produits">Nos Produits</a></li>
-                    <li><a href="./produits_uniques">Nos produits uniques</a></li>
+                    <li><a href="./produitsuniques">Nos produits uniques</a></li>
                     <li><a href="./toparticles">Nos articles les plus vendus</a></li>
                 </ul>
             </li>
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Les events <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Event du mois</a></li>
-                    <li><a href="#">Events passés</a></li>
+                    <li><a href="./eventmois">Event du mois</a></li>
+                    <li><a href="./eventspasses">Events passés</a></li>
                 </ul>
             </li>
         </ul>
