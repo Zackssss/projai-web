@@ -39,9 +39,7 @@ Route::get('/toparticles', function () {
     return view('toparticles');
 });
 
-Route::get('/produits', function () {
-    return view('produits');
-});
+Route::get('/produits/{id}', 'ProduitListeController@store)');
 
 Route::get('/produitsuniques', function () {
     return view('produit_uniques');
