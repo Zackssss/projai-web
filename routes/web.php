@@ -19,9 +19,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/panier', function () {
+/*Route::get('/panier', function () {
     return view('panier');
-});
+});*/
 
 Route::get('/eventspasses', function () {
     return view('events_passes');
@@ -39,8 +39,6 @@ Route::get('/toparticles', function () {
     return view('toparticles');
 });
 
-Route::get('/boutique', 'ProduitController@index');
-
 Route::get('/conditions', function () {
     return view('conditions');
 });
@@ -53,11 +51,16 @@ Route::get('/infoscontact', function () {
     return view('infoscontact');
 });
 
+Route::get('/boutique', 'ProduitController@index');
+
 Route::get('/produits/{id}', 'ProduitController@indexWithId');
 
-Route::get('/produitsuniques', function () {
-    
-    return view('produit_uniques');
+Route::get('/cart/{id}', 'ProduitController@addCart') ->name ('addCart');
+
+//Route::get('/shopping-cart', 'ProduitController@shoppingCart') ->name ('shoppingCart');//
+
+Route::get('/boutique', function () {
+    return view('boutique');
 });
 
 Route::get('/createProduit', 'ProduitController@create');

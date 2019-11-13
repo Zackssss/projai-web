@@ -11,29 +11,32 @@ class ProduitController extends Controller
 {
     public function index()
     {
-        $produits = Produit::all();
-        return view('boutique')-> with('produits', $produits);
+        $produit = Produit::all();
+        return view('boutique')-> with('Produit', $produit);
     }
 
-    public function add(Request $request, $id_produit){
-        $produits = Produit::find($id_produit);
-        $oldCart = Session::has('cart') ? Session::get('cart') : null;
-        $cart = new Cart($oldCart);
-        $cart->add($produits, $produits->id_produit);
-
-        $request->session()->put('cart', $cart);
-        dd($request->session()->get('cart'));
-        return redirect()->route('cart');
-    }
     public function indexWithId()
     {
         $url = url()->full() ;
-    
+
         $id=substr($url, -1);
         $produit = Produit::where('id_produit',$id)->get();
         return view('produits')-> with('Produit', $produit);
-        
+
     }
+
+    public function addCart(Request $request, $id){
+
+        $produit = Produit::where('id_produit',$id)->first();
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->add($produit, $produit->id_produit);
+
+        $request->session()->put('cart', $cart);
+        dd($request->session()->get('cart'));
+        return redirect()->route('addCart');
+    }
+
     public function create()
     {
         return view('createProduit');
