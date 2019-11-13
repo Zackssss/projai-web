@@ -93,7 +93,12 @@ class ProduitController extends Controller
         $cart = new Cart($oldCart);
         $cart->reduce($id);
 
-        Session::put('cart', $cart);
+        if(count($cart->items) > 0){
+            Session::put('cart', $cart);
+        } else {
+            Session::forget('cart');
+        }
+
         return redirect()->route('shoppingCart');
     }
 
@@ -103,7 +108,12 @@ class ProduitController extends Controller
         $cart = new Cart($oldCart);
         $cart->remove($id);
 
-        Session::put('cart', $cart);
+        if(count($cart->items) > 0){
+            Session::put('cart', $cart);
+        } else {
+            Session::forget('cart');
+        }
+
         return redirect()->route('shoppingCart');
     }
 
