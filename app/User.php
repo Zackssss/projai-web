@@ -36,4 +36,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    /*public function toArray()
+{
+    //return parent::toArray();
+    return [
+        'id' => $this->id,
+        'name' =>$this->name,
+        'email' =>$this->email,
+        'password' =>$this->password,
+
+    ];
+}*/
+
 }
