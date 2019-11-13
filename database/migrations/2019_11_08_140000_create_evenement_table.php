@@ -16,7 +16,7 @@ class CreateEvenementTable extends Migration
      */
     public function up()
     {
-        Schema::create('evenement', function (Blueprint $table) {
+        Schema::create('evenements', function (Blueprint $table) {
             $table->bigIncrements('id_evenement');
             $table->string('nom_evenement');
             $table->string('association');

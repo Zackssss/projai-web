@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
 
         $faker = Faker::create('fr_FR');
         foreach(range(1,10)as $index){
-            DB::table('produit')->insert([
+            DB::table('produits')->insert([
                 'nom_produit' => $faker->name,
                 'description_produit' => $faker->realText($maxNbChars=255),
                 'prix' => $faker->numberBetween(1,20),
@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
                 
             ]);}
             foreach(range(1,10)as $index){
-                DB::table('image')->insert([
+                DB::table('images')->insert([
                     'chemin' => $faker->imageUrl($width = 400, $height = 600, 'animals', true, 'Faker') ,
                     'visibilite_image' => 1,
                     'appréciation' => $faker->numberBetween(1,20),
@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
                     
                 ]);}
             foreach(range(1,10)as $index){
-                    DB::table('commande')->insert([
+                    DB::table('commandes')->insert([
                         'id_commande'=> $faker -> numberBetween(1,5),
                         'date_commande' => $faker->date($format = 'Y-m-d', $max = 'now') ,
                         'quantite' =>$faker->numberBetween(1,20),
@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder
                         
                     ]);}
             foreach(range(1,10)as $index){
-                DB::table('commentaire')->insert([
+                DB::table('commentaires')->insert([
                     'texte' => $faker->realText($maxNbChars=50) ,
                     'visibilite_commentaire' =>1,
                     'user_id_createur_com' => $faker->numberBetween(1,20),
@@ -54,7 +54,7 @@ class DatabaseSeeder extends Seeder
                         
                 ]);}
             foreach(range(1,10)as $index){
-                 DB::table('evenement')->insert([
+                 DB::table('evenements')->insert([
                     'nom_evenement' => $faker->realText($maxNbChars=10) ,
                     'association' =>$faker->company(),
                     'Description_evenement' => $faker->realText($maxNbChars=240),
