@@ -9,8 +9,10 @@ class ProduitController extends Controller
 {
     public function index()
     {
-        $produit = Produit::paginate(100);
-        return Produit::collection($produit);
+        
+        $produit = Produit::all();
+        return view('boutique')-> with('Produit', $produit);
+        
     }
 
     public function create()
@@ -30,7 +32,7 @@ class ProduitController extends Controller
          $produit->prix = request('prix');
          $produit->save();
          return "Produit sauvegardé !";
-     }*/
+     }*/ 
     public function store(Request $request)
     {
         $produit = $request->isMethod('put') ? Produit::findOrFail($request->id) : new Produit();

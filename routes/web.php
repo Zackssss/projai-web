@@ -31,20 +31,18 @@ Route::get('/eventmois', function () {
     return view('event_mois');
 });
 
-Route::get('/boutique', function () {
+/*Route::get('/boutique', function () {
     return view('boutique');
-});
+});*/
 
 Route::get('/toparticles', function () {
     return view('toparticles');
 });
 
-Route::get('/produits', function() {
-    return view('produits');
-});
+Route::get('/boutique', 'ProduitController@index');
 
 Route::get('/produitsuniques', function () {
-    Route::get('localhost:8080/products','ProduitController@index');
+    
     return view('produit_uniques');
 });
 
@@ -55,6 +53,8 @@ Route::post('/createProduit', 'ProduitController@store');
 Route::get('/createEvent', 'EvenementController@create');
 
 Route::post('/createEvent', 'EvenementController@store');
+
+//Route::ressource
 
 
 /*Route::get('/creationevent', function () {

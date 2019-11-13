@@ -33,8 +33,8 @@
             border: 1px solid;
             padding: 10px;
             box-shadow: 5px 10px 8px #888888;
-            width: 40%;
-            height: auto;
+            width: 100%;
+            height: 100%;
         }
         .texte {
             padding-top: 10px;

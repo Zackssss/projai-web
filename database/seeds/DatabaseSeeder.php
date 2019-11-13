@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
                 'prix' => $faker->numberBetween(1,20),
                 'nbr_de_vente'=> $faker->numberBetween(1,50),
                 'id_evenement'=> $faker->numberBetween(0,5),
-                'url_image_produit'=>$faker->imageUrl($width = 400, $height = 600, true, 'Faker')
+                'url_image_produit'=>$faker->imageUrl($width = 100, $height = 200,'cats', true, 'Faker')
                 
             ]);}
             foreach(range(1,10)as $index){

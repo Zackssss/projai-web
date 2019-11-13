@@ -27,16 +27,18 @@ $desc= "D'ailleurs, il ne tardait pas à pas, en traînant ses pantoufles, et, s
 $temp = substr($desc,-255,100);
 $desc = substr_replace($temp, '...',100,100) ;
 ?>
+@foreach ($Produit as $Produit)
+    
 
 <div class="col-12 col-md-6 col-lg-4">
         <div id="boxombre">
-            <img src="https://lorempixel.com/60/100/animals/?2741..." alt="photo">
+            <img src="{{$Produit-> url_image_produit}}" alt="photo">
                 <div class="texte">
-                    <div>N° Produit = </div>
-                    <div>Nom Produit = </div>
-                    <div>Description = <?php echo($desc) ?></div>
-                    <div>Prix = € </div>
-                    <div>N° Evenement associer = </div>
+                    <div>N° Produit = {{$Produit-> id_produit}} </div>
+                    <div>Nom Produit = {{$Produit-> nom_produit}}</div>
+                    <div>Description = {{$Produit-> description_produit}}</div>
+                    <div>Prix = {{$Produit-> prix}}€  Nombre de Vente = {{$Produit-> nbr_de_vente}}</div>
+                    <div>N° Evenement associer = {{$Produit-> id_evenement}}</div>
     
                 </div>
     
@@ -47,8 +49,7 @@ $desc = substr_replace($temp, '...',100,100) ;
         </div>
     </div>
     
-
-
+@endforeach
 
 
 
