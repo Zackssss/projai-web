@@ -39,7 +39,7 @@
         </div>
         <div class="row">
             <div class="col-sm-6 col-md-m col-md-offset-3 col-sm-offset-3">
-                <button type="button" class="btn btn-success">Checkout</button>
+            <button type="button" class="btn btn-success"><a href="/send-mail/{{$prixTotal}}">Checkout</a></button>
             </div>
         </div>
         @else

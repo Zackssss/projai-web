@@ -38,6 +38,19 @@ Route::get('/conditions', function () {
     return view('conditions');
 });
 
+Route::get('send-mail/{prix}', function ($prix) {
+    
+    $details = [
+        'title' => 'Voila ma commande!',
+        'body' => 'Le panier vaut'.$prix.'€'
+    ];
+   
+    \Mail::to('valireinb@gmail.com')->send(new \App\Mail\MailPourBde($details));
+   
+    return view('welcome');
+
+});
+
 Route::get('/cookies', function () {
     return view('cookies');
 });
