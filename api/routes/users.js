@@ -15,7 +15,7 @@ router.post('/register', (req, res, next) => {
             });
         }
         else{
-            bcrypt.hash(req.body.mdp, 5, (err, hash) =>{
+            bcrypt.hash(req.body.mdp, 10, (err, hash) =>{
                 if(err){
                     return res.status(500).json({
                         error: err                
@@ -49,16 +49,12 @@ router.post('/login', (req, res, next) => {
             res.send(err);
         }
         if (user.length){
-            bcrypt.compare(req.body.mdp, user.mdp, (err, result) => {
+            bcrypt.hash(req.body.mdp, user.mdp, (err, result) => {
                 if (err){
-                    return res.status(401).json({
-                        message: "auth failed 1"
-                    }); 
+                    return res.status(401).json(user); 
                 }
                 if (result){
-                    return res.status.json({
-                        message: 'Auth successful'
-                    })
+                    return res.status(201).json(user)
                 }
             })
         }
@@ -70,6 +66,17 @@ router.post('/login', (req, res, next) => {
     });
 
 });
+
+    //patch user by id
+router.patch('/:usersId', (req, res, next) => {
+    var user = new User(req.body);
+            User.updateUserById(req.params.usersId, user, function(err, user) {
+        if (err)
+          res.send(err);
+        res.status(201).json(user);
+    });
+});
+
 
     //delete user by id
 router.delete('/:usersId', (req, res, next) => {

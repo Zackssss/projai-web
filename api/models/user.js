@@ -37,6 +37,19 @@ User.createUser = function (newuser, result) {
         
 }
 
+User.updateUserById = function (id, user, result) {
+    usrsql.query("UPDATE user set ? where user_id=?",[user, id], function(err, res){
+        if(err) {
+            console.log("error: ", err);
+            result(err, null);
+        }
+        else{
+            result(null, res);
+        }
+    })
+    
+}
+
 User.deleteUser = function (id, result) {
     sql.query("delete from user where user_id = ?",[id], function(err, res){
         if(err) {
