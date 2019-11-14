@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Evenement as Evenement;
-
+use Illuminate\Support\Facades\Storage;
+use View;
+use File;
+use Response;
 
 class EvenementController extends Controller
 {
@@ -43,6 +46,43 @@ class EvenementController extends Controller
         
         
 
+        return view('event')-> with('Evenement', $Evenement);
+    }
+
+
+    public function downloadJSONFile($id)
+    {
+        
+
+        $Evenement = Evenement::where('evenements.id_evenement',$id)->leftjoin('images','evenements.id_evenement','=','images.id_evenement')
+        ->leftjoin('commentaires','images.id_image','=','commentaires.id_image')->get();
+
+
+
+        $data = json_encode($Evenement);
+        
+
+        
+
+        $dt = Carbon::now(); // setting date
+        
+        $dt=$dt->toDateString('Y-M-D');
+        $fileName = 'eventN°'.$id."_".$dt.random_int(1,20000).'_datafile.json';
+        $pb=public_path($fileName);
+        
+	    File::put($fileName,$data);
+	    return response()->download($pb, $fileName);
+        
+
+        
+    }
+
+
+    public function ComHide($idcom,$idevent){
+        Evenement::where("id_commentaire",$idcom)->leftjoin('images','evenements.id_evenement','=','images.id_evenement')->leftjoin('commentaires','images.id_image','=','commentaires.id_image')->update(['visibilite_commentaire'=>0]);
+        $Evenement = Evenement::where('evenements.id_evenement',$idevent)->leftjoin('images','evenements.id_evenement','=','images.id_evenement')
+        ->leftjoin('commentaires','images.id_image','=','commentaires.id_image')->get();
+        
         return view('event')-> with('Evenement', $Evenement);
     }
    /*public function store(){

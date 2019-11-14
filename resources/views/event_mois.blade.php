@@ -20,7 +20,7 @@
                             <div>Id créateur evenement = {{$Evenement-> user_id}}</div>
             
                         </div>
-                        <button type="button" class="btn btn-primary"><a href="./evenements/{{$Evenement-> id_evenement}}"> Plus d'info</a></button>  
+                        <button type="button" class="btn btn-primary"><a href="/evenements/{{$Evenement-> id_evenement}}"> Plus d'info</a></button>  
             </div> 
         </div>       
         @endforeach
