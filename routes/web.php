@@ -27,9 +27,7 @@ Route::get('/eventspasses', 'EvenementController@Eventpassé');
 
 Route::get('/evenements/{id}', 'EvenementController@eventcemois');
 
-Route::get('/eventmois', function () {
-    return view('event_mois');
-});
+Route::get('/eventmois','EvenementController@EventMois' );
 
 
 Route::get('/conditions', function () {

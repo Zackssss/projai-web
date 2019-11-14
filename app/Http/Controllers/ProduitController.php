@@ -19,11 +19,9 @@ class ProduitController extends Controller
         $produit = $produit->sortBy('id_produit');
         return view('boutique')-> with('Produit', $produit);
     }
-    public function indexWithId()
+    public function indexWithId($id)
     {
-        $url = url()->full() ;
-
-        $id=substr($url, -1);
+        
         $produit = Produit::where('id_produit',$id)->get();
         
         return view('produits')-> with('Produit', $produit);
