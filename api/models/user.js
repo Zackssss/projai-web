@@ -10,10 +10,10 @@ var User = function(user){
 };
 
 User.findAUser = function (usermail, result) {
-    sql.query("SELECT mail FROM user WHERE mail = ? ",usermail, function(err, res){
+    sql.query("SELECT * FROM user WHERE mail = ? ",usermail, function(err, res){
         if(err) {
             console.log(res);
-            result(null, null);
+            result(res, null);
         }
         else{
             console.log(res);
@@ -24,7 +24,7 @@ User.findAUser = function (usermail, result) {
 
     //Create a user
 User.createUser = function (newuser, result) {
-    usrsql.query("INSERT INTO user set ?", newuser, function(err, res){
+    sql.query("INSERT INTO user set ?", newuser, function(err, res){
         if(err) {
             console.log("error: ", err);
             result(err, null);
@@ -38,7 +38,7 @@ User.createUser = function (newuser, result) {
 }
 
 User.deleteUser = function (id, result) {
-    usrsql.query("delete from user where user_id = ?",[id], function(err, res){
+    sql.query("delete from user where user_id = ?",[id], function(err, res){
         if(err) {
             console.log("error: ", err);
             result(err, null);
