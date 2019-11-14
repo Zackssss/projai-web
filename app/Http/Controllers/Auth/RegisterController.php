@@ -72,24 +72,26 @@ class RegisterController extends Controller
             'prenom' => $data['prenom'],
             'centre' => $data['centre'],
             'mail' => $data['mail'],
-            'password' => Hash::make($data['password']),
+            'password' => $data['password'],
         ]);
     }
 
     public function store(Request $request)
     {
-        $user = $request->isMethod('put') ? User::findOrFail($request->id) : new User;
-        $user->id = $request->input('id');
+        $user = new User;
         $user->nom = $request->input('nom');
         $user->prenom = $request->input('prenom');
         $user->centre = $request->input('centre');
         $user->mail = $request->input('mail');
         $user->password = $request->input('password');
-
-        if ($user->save()) {
-            return new User($user);
-        }
+        
+        return $user->toJson(JSON_PRETTY_PRINT);
     }
+
+    public function registerjson(){
+
+    }
+
     public function show($id)
     {
         $user = User::findOrFail($id);
