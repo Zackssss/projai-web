@@ -2,6 +2,10 @@
 namespace App\Http\Controllers;
 use App\Produit;
 use App\Cart;
+use View;
+use File;
+use Response;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 class ProduitController extends Controller
@@ -23,8 +27,34 @@ class ProduitController extends Controller
     {
         
         $produit = Produit::where('id_produit',$id)->get();
-
+        
         return view('produits')-> with('Produit', $produit);
+
+
+
+    }
+    public function dljsonprod($id)
+    {
+
+        $produit = Produit::where('id_produit',$id)->get();
+        $data = json_encode($produit);
+        
+
+        
+
+        $dt = Carbon::now(); // setting date
+        
+        $dt=$dt->toDateString('Y-M-D');
+        $fileName = 'produitN°'.$id."_".$dt.random_int(1,20000).'_datafile.json';
+        $pb=public_path($fileName);
+        
+        File::put($fileName,$data);
+        
+
+        
+	    return response()->download($pb, $fileName);
+        
+
 
 
 
