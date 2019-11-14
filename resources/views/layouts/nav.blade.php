@@ -9,7 +9,7 @@
                 <ul class="dropdown-menu">
                     <li><a href="/boutique">Boutique</a></li>
                     
-                    <li><a href="/produitsuniques">Nos produits uniques</a></li>
+                    
                     <li><a href="/toparticles">Nos articles les plus vendus</a></li>
                 </ul>
             </li>

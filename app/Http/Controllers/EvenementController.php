@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Carbon\Carbon;
 use App\Evenement as Evenement;
 
 
@@ -13,12 +13,29 @@ class EvenementController extends Controller
 
         return view('createEvent');
     }
-    public function EventCeMois()
+    public function EventMois()
     {
-        $url = url()->full() ;
-    
-        $id=substr($url, -1);
+        $dt = Carbon::now(); // setting date
+        $dt-> subMonth();
+        $dt=$dt->toDateString();
 
+        $Evenement = Evenement::where('date_evenement','>',$dt)->get(); //getting all event according to date
+        
+        return view('event_mois')-> with('Evenement', $Evenement);
+        
+    }
+    public function eventpassé(){
+
+        $dt = Carbon::now(); // setting date
+        $dt-> subMonth();
+        $dt=$dt->toDateString();
+
+        $Evenement = Evenement::where('date_evenement','<',$dt)->get(); //getting all event according to date
+        
+        return view('event_mois')-> with('Evenement', $Evenement);
+    }
+    public function eventcemois($id)
+    {
         
 
         $Evenement = Evenement::where('evenements.id_evenement',$id)->leftjoin('images','evenements.id_evenement','=','images.id_evenement')
@@ -27,12 +44,6 @@ class EvenementController extends Controller
         
 
         return view('event')-> with('Evenement', $Evenement);
-        
-    }
-    public function eventpassé(){
-
-        $event = Evenement::all();
-        return view('event_mois')-> with('Evenement', $event);
     }
    /*public function store(){
          Evenement::firstOrCreate([

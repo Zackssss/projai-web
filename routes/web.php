@@ -27,13 +27,8 @@ Route::get('/eventspasses', 'EvenementController@Eventpassé');
 
 Route::get('/evenements/{id}', 'EvenementController@eventcemois');
 
-Route::get('/eventmois', function () {
-    return view('event_mois');
-});
+Route::get('/eventmois','EvenementController@EventMois' );
 
-Route::get('/toparticles', function () {
-    return view('toparticles');
-});
 
 Route::get('/conditions', function () {
     return view('conditions');
@@ -47,11 +42,16 @@ Route::get('/infoscontact', function () {
     return view('infoscontact');
 });
 
-Route::get('/boutique', 'ProduitController@Id');
-Route::get('/boutique/{id}', 'ProduitController@TriBoutiqueId');
+Route::get('/boutique/Id', 'ProduitController@Id');
+
+Route::get('/boutique', 'ProduitController@Id')->name('boutique');
+
 Route::get('/boutique/prix', 'ProduitController@TriBoutiquePrix');
+
 Route::get('/boutique/event', 'ProduitController@TriBoutiqueEvent');
+
 Route::get('/boutique/notevent', 'ProduitController@TriBoutiqueNotEvent');
+
 Route::get('/toparticles', 'ProduitController@indextop3');
 
 Route::get('/produits/{id}', 'ProduitController@indexWithId');

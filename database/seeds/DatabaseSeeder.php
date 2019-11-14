@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
 
         $faker = Faker::create('fr_FR');
-        foreach(range(1,10)as $index){
+        foreach(range(1,20)as $index){
             DB::table('produits')->insert([
                 'nom_produit' => $faker->name,
                 'description_produit' => $faker->realText($maxNbChars=255),
@@ -24,17 +24,17 @@ class DatabaseSeeder extends Seeder
                 'url_image_produit'=>$faker->imageUrl($width = 100, $height = 200,'cats', true, 'Faker')
                 
             ]);}
-            foreach(range(1,10)as $index){
+            foreach(range(1,100)as $index){
                 DB::table('images')->insert([
                     'chemin' => $faker->imageUrl($width = 100, $height = 200, 'animals', true, 'Faker') ,
                     'visibilite_image' => 1,
                     'appréciation' => $faker->numberBetween(1,20),
                     'user_id_createur_img'=> $faker->numberBetween(1,50),
-                    'id_evenement'=> $faker->numberBetween(1,5)
+                    'id_evenement'=> $faker->numberBetween(1,20)
                     
                     
                 ]);}
-            foreach(range(1,10)as $index){
+            foreach(range(1,20)as $index){
                     DB::table('commandes')->insert([
                         'id_commande'=> $faker -> numberBetween(1,5),
                         'date_commande' => $faker->date($format = 'Y-m-d', $max = 'now') ,
@@ -44,16 +44,16 @@ class DatabaseSeeder extends Seeder
                         
                         
                     ]);}
-            foreach(range(1,10)as $index){
+            foreach(range(1,100)as $index){
                 DB::table('commentaires')->insert([
                     'texte' => $faker->realText($maxNbChars=50) ,
                     'visibilite_commentaire' =>1,
                     'user_id_createur_com' => $faker->numberBetween(1,20),
-                    'id_image'=> $faker->numberBetween(1,10),
+                    'id_image'=> $faker->numberBetween(1,20),
                     
                         
                 ]);}
-            foreach(range(1,10)as $index){
+            foreach(range(1,20)as $index){
                  DB::table('evenements')->insert([
                     'nom_evenement' => $faker->realText($maxNbChars=10) ,
                     'association' =>$faker->company(),
