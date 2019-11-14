@@ -79,7 +79,7 @@ router.post('/login', (req, res, next) => {
                         usersId: user[0].user_id,
                         role: user[0].role
                     }, "GroupeProjet",{
-                        expiresIn: "1h"
+                        expiresIn: "12h"
                     })
                     return res.status(201).json({
                         user: user,
