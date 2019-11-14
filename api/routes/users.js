@@ -4,6 +4,18 @@ var User = require('../models/user');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const checkAuth = require('../middleware/check-auth');
+const passwordValidator = require('password-validator');
+
+var schema = new passwordValidator();
+
+schema
+.is().min(6)                                    // Minimum length 8
+.is().max(100)                                  // Maximum length 100
+.has().uppercase()                              // Must have uppercase letters
+.has().lowercase()                              // Must have lowercase letters
+.has().digits()                                 // Must have digits
+.has().not().spaces()                           // Should not have spaces
+
 
 router.post('/register', (req, res, next) => {
     User.findAUser(req.body.mail, function(err, user) {
@@ -16,30 +28,37 @@ router.post('/register', (req, res, next) => {
             });
         }
         else{
-            bcrypt.hash(req.body.mdp, 10, (err, hash) =>{
-                if(err){
-                    return res.status(500).json({
-                        error: err                
-                    });
-                }
-                else{
-                    var new_user = new User({
-                        nom: req.body.nom,
-                        prenom: req.body.prenom,
-                        centre: req.body.centre,
-                        mail: req.body.mail,
-                        mdp: hash,
-                        role: req.body.role
-                    });
-                    User.createUser(new_user, function(err, user) {
-    
-                        if (err){
-                          res.send(err);
-                        }
-                        res.status(201).json(user);
-                      });              
-                }
-            })
+            if (schema.validate(req.body.mdp)){
+                bcrypt.hash(req.body.mdp, 10, (err, hash) =>{
+                    if(err){
+                        return res.status(500).json({
+                            error: err                
+                        });
+                    }
+                    else{
+                        var new_user = new User({
+                            nom: req.body.nom, 
+                            prenom: req.body.prenom,
+                            centre: req.body.centre,
+                            mail: req.body.mail,
+                            mdp: hash,
+                            role: req.body.role
+                        });
+                        User.createUser(new_user, function(err, user) {
+        
+                            if (err){
+                            res.send(err);
+                            }
+                            res.status(201).json(user);
+                        });              
+                    }
+                })
+            }
+            else{
+                return res.status(500).json({
+                    message: 'Password must have digit, caps and lowercase'
+                })
+            }
         }
     }); 
 });
