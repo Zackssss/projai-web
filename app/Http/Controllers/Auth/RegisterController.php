@@ -50,9 +50,12 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'nom' => ['required', 'string', 'max:255'],
+            'prenom' => ['required', 'string', 'max:255'],
+            'centre' => ['required', 'string', 'max:255'],
+            'mail' => ['required', 'string', 'mail', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'PdC' => ['required']
         ]);
     }
 
@@ -65,8 +68,10 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+            'nom' => $data['nom'],
+            'prenom' => $data['prenom'],
+            'centre' => $data['centre'],
+            'mail' => $data['mail'],
             'password' => Hash::make($data['password']),
         ]);
     }
@@ -75,8 +80,10 @@ class RegisterController extends Controller
     {
         $user = $request->isMethod('put') ? User::findOrFail($request->id) : new User;
         $user->id = $request->input('id');
-        $user->name = $request->input('name');
-        $user->email = $request->input('email');
+        $user->nom = $request->input('nom');
+        $user->prenom = $request->input('prenom');
+        $user->centre = $request->input('centre');
+        $user->mail = $request->input('mail');
         $user->password = $request->input('password');
 
         if ($user->save()) {

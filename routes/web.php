@@ -55,6 +55,8 @@ Route::get('/boutique/notevent', 'ProduitController@TriBoutiqueNotEvent');
 
 Route::get('/toparticles', 'ProduitController@indextop3');
 
+Route::get('/boutique', 'ProduitController@index') ->name('boutique');
+
 Route::get('/produits/{id}', 'ProduitController@indexWithId');
 
 Route::get('/cart/{id}', 'ProduitController@addCart') ->name ('addCart');

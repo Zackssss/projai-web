@@ -29,7 +29,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="prenom" class="col-md-4 col-form-label text-md-right">{{ __('Prenom') }}</label>
+                            <label for="prenom" class="col-md-4 col-form-label text-md-right">{{ __('Prénom') }}</label>
 
                             <div class="col-md-6">
                                 <input id="prenom" type="text" class="form-control @error('prenom') is-invalid @enderror" name="prenom" value="{{ old('prenom') }}" required autocomplete="prenom" autofocus>
@@ -57,7 +57,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Adresse E-mail') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -89,6 +89,16 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="PdC" class="col-md-4 col-form-label text-md-right">{{ __('Politique de confidentialité') }}</label>
+
+
+                            <div class="col-md-6">
+                                <input id="PdC" type="checkbox" required name="PdC" class="switch-input" value="1" {{ old('PdC') ? 'checked="checked"' : ''}}/>
+
                             </div>
                         </div>
 

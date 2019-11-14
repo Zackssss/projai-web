@@ -23,10 +23,10 @@ class ProduitController extends Controller
     {
         
         $produit = Produit::where('id_produit',$id)->get();
-        
+
         return view('produits')-> with('Produit', $produit);
-        
-        
+
+
 
     }
     public function indextop3()
@@ -51,17 +51,17 @@ class ProduitController extends Controller
     
     public function TriBoutiqueEvent()
     {
-        
+
         $produit = Produit::where('id_evenement','!=',0)->get();
         return view('boutique')-> with('Produit', $produit);
-        
+
     }
     public function TriBoutiqueNotEvent()
     {
-        
+
         $produit = Produit::where('id_evenement','=',0)->get();
         return view('boutique')-> with('Produit', $produit);
-        
+
     }
 
     public function addCart(Request $request, $id){
@@ -129,39 +129,37 @@ class ProduitController extends Controller
     {
         return view('createProduit');
     }
-    /*public function store(){
-        Produit::firstOrCreate([
-            'nom_produit' => request('nom_produit'),
-            'description_produit' => request('description_produit'),
-            'prix' => request('prix')
-        ]);*/
-    /* public function store(){
-         $produit = new Produit();
-         $produit->nom_produit = request('nom_produit');
-         $produit->description_produit = request('description_produit');
-         $produit->prix = request('prix');
-         $produit->save();
-         return "Produit sauvegardé !";
-     }*/
-    public function store(Request $request)
-    {
-        $produit = $request->isMethod('put') ? Produit::findOrFail($request->id) : new Produit();
-        $produit->id = $request->input('id');
-        $produit->nom_produit = $request->input('nom_produit');
-        $produit->description_produit = $request->input('description_produit');
-        $produit->prix = $request->input('prix');
-        if ($produit->save()) {
-            return new Produit($produit);
+
+        public function store(){
+            $produit = new Produit();
+            $produit->url_image_produit = request('url_image_produit');
+            $produit->nom_produit = request('nom_produit');
+            $produit->description_produit = request('description_produit');
+            $produit->prix = request('prix');
+            $produit->nbr_de_vente = 0;
+            //$produit->user_id = ;//
+            $produit->save();
+            return "Produit sauvegardé !";
         }
-    }
-    public function show($id)
-    {
-        $produit = Produit::findOrFail($id);
-        return new Produit($produit);
-    }
-    public function destroy($id)
-    {
-        $produit = Produit::findOrFail($id);
-        return new Produit($produit);
-    }
+       /*public function store(Request $request)
+       {
+           $produit = $request->isMethod('put') ? Produit::findOrFail($request->id) : new Produit();
+           $produit->id = $request->input('id');
+           $produit->nom_produit = $request->input('nom_produit');
+           $produit->description_produit = $request->input('description_produit');
+           $produit->prix = $request->input('prix');
+           if ($produit->save()) {
+               return new Produit($produit);
+           }
+       }
+       public function show($id)
+       {
+           $produit = Produit::findOrFail($id);
+           return new Produit($produit);
+       }
+       public function destroy($id)
+       {
+           $produit = Produit::findOrFail($id);
+           return new Produit($produit);
+       }*/
 }

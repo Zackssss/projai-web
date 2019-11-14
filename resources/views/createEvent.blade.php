@@ -16,6 +16,20 @@
                                 </div>
                             </div>
 
+                                <div class="form-group row">
+                                    <label for="description_evenement" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
+
+                                    <div class="col-md-6">
+                                        <input id="description_evenement" type="text" class="form-control @error('description_evenement') is-invalid @enderror" name="description_evenement" value="{{ old('description_evenement') }}" required autocomplete="description_evenement" autofocus>
+
+                                        @error('description_evenement')
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
                             <div class="form-group row">
                                 <label for="association" class="col-md-4 col-form-label text-md-right">{{ __('Association') }}</label>
 
@@ -31,26 +45,12 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="description_evenement" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="description_evenement" type="text" class="form-control @error('description_evenement') is-invalid @enderror" name="description" value="{{ old('description_evenement') }}" required autocomplete="description_evenement" autofocus>
-
-                                    @error('description_evenement')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
                                 <label for="date_evenement" class="col-md-4 col-form-label text-md-right">{{ __('Date') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="date_evenement" type="date" class="form-control @error('description_evenement') is-invalid @enderror" name="date_evenement" value="01-01-2019" min="2019-11-11">
+                                    <input id="date_evenement" type="date" class="form-control @error('date_evenement') is-invalid @enderror" name="date_evenement" value="01-01-2019" min="2019-11-11">
 
-                                    @error('date')
+                                    @error('date_evenement')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -59,32 +59,14 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="recurrence" class="col-md-4 col-form-label text-md-right">{{ __('Recurrence') }}</label>
+                                <label for="recurence" class="col-md-4 col-form-label text-md-right">{{ __('Recurrence') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="recurrence" type="checkbox" class="form-control @error('recurrence') is-invalid @enderror" name="recurrence">
+                                    <input id="recurence" type="checkbox" name="recurence" class="switch-input" value="1" {{ old('recurence') ? 'checked="checked"' : ''}}/>
 
-                                    @error('recurrence')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="prix" class="col-md-4 col-form-label text-md-right">{{ __('Prix') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="prix" type="text" class="form-control @error('prix') is-invalid @enderror" name="prix" value="{{ old('prix') }}" required autocomplete="prix" autofocus>
-
-                                    @error('prix')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
                                 <div class="form-group">
                                     <button type = "submit" class="btn btn-success">Enregistrer</button>
                                 </div>
