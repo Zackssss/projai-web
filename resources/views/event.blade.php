@@ -23,6 +23,7 @@ float: left;
 
 
 }
+
 #boxombre2 {
             border: 1px solid;
             padding: 10px;

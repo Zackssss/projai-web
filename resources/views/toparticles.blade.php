@@ -11,12 +11,15 @@ padding: 1%;
 font-size: 20px;
 
 }
+
 #boxombre2 {
             border: 1px solid;
             padding: 10px;
             box-shadow: 5px 10px 8px #888888;
             width: auto;
             height: auto;
+            background-color: #E5E8E8;
+
         }
 
 

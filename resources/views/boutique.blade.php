@@ -20,8 +20,12 @@ html{
 
 
 margin-bottom: 10%;
+background-color: white;
 }
+#boxombre{
 
+background-color: #E5E8E8;
+}
 
 </style>
 <body>

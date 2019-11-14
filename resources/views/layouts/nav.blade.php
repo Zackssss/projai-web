@@ -19,6 +19,7 @@
                     <li><a href="/eventspasses">Events passés</a></li>
                 </ul>
             </li>
+            <a class="navbar-brand" href="/dljsonimage">DL Json Image</a>
         </ul>
         @yield('other nav')
         <ul class="nav navbar-nav navbar-right">
