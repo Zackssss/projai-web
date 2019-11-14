@@ -13,7 +13,7 @@
 
 Auth::routes();
 
-Route::get('/json', 'Auth\RegisterController@store');
+Route::post('/register', 'Auth\RegisterController@store');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

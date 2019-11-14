@@ -1,4 +1,3 @@
-
 @extends('layouts.head')
 @extends('layouts.footer')
 @extends ('layouts.nav')
@@ -12,7 +11,7 @@
                     <h1>Inscription</h1>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="">
                             @csrf
 
                             <div class="form-group row">
@@ -58,12 +57,12 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Adresse E-mail') }}</label>
+                                <label for="mail" class="col-md-4 col-form-label text-md-right">{{ __('Adresse E-mail') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                    <input id="mail" type="email" class="form-control @error('mail') is-invalid @enderror" name="mail" value="{{ old('mail') }}" required autocomplete="mail">
 
-                                    @error('email')
+                                    @error('mail')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -106,8 +105,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        <a href="/json">Register</a>
-                                    </button>
+                                    Register</button>
                                 </div>
                             </div>
                         </form>
