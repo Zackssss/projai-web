@@ -20,9 +20,9 @@ class EvenementController extends Controller
         $dt=$dt->toDateString();
 
         $Evenement = Evenement::where('date_evenement','>',$dt)->get(); //getting all event according to date
-        
+
         return view('event_mois')-> with('Evenement', $Evenement);
-        
+
     }
     public function eventpassé(){
 
@@ -31,17 +31,17 @@ class EvenementController extends Controller
         $dt=$dt->toDateString();
 
         $Evenement = Evenement::where('date_evenement','<',$dt)->get(); //getting all event according to date
-        
+
         return view('event_mois')-> with('Evenement', $Evenement);
     }
     public function eventcemois($id)
     {
-        
+
 
         $Evenement = Evenement::where('evenements.id_evenement',$id)->leftjoin('images','evenements.id_evenement','=','images.id_evenement')
         ->leftjoin('commentaires','images.id_image','=','commentaires.id_image')->get();
-        
-        
+
+
 
         return view('event')-> with('Evenement', $Evenement);
     }
