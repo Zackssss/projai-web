@@ -51,8 +51,8 @@
             padding: 1%;
 
         }
-        body{
-            margin-bottom: 25%;
+        html{
+            margin-bottom: 10%;
         }
 
         </style>

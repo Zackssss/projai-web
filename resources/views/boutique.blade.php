@@ -14,13 +14,22 @@
 
 </header>
 
+<style>
 
+html{
+
+
+margin-bottom: 10%;
+}
+
+
+</style>
 <body>
 
 
 
 
-</body>
+
 @section('other nav')
 <ul class="nav navbar-nav">
         
@@ -67,3 +76,4 @@
 @endsection
 
 
+</body>
