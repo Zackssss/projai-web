@@ -32,7 +32,7 @@ Route::get('/evenementscacher/{idcom}/{idevent}', 'EvenementController@ComHide')
 Route::get('/evenementscacher/{id}', 'EvenementController@eventcemois');
 Route::get('/eventmois','EvenementController@EventMois' );
 Route::get('/dljsonevent/{id}','EvenementController@downloadJSONFile' );
-
+Route::get('/dljsonprod/{id}','ProduitController@dljsonprod' );
 Route::get('/conditions', function () {
     return view('conditions');
 });

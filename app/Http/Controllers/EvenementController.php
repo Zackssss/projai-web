@@ -54,7 +54,7 @@ class EvenementController extends Controller
     {
         
 
-        $Evenement = Evenement::where('evenements.id_evenement',$id)->leftjoin('images','evenements.id_evenement','=','images.id_evenement')
+       $Evenement = Evenement::where('evenements.id_evenement',$id)->leftjoin('images','evenements.id_evenement','=','images.id_evenement')
         ->leftjoin('commentaires','images.id_image','=','commentaires.id_image')->get();
 
 
@@ -70,7 +70,10 @@ class EvenementController extends Controller
         $fileName = 'eventN°'.$id."_".$dt.random_int(1,20000).'_datafile.json';
         $pb=public_path($fileName);
         
-	    File::put($fileName,$data);
+        File::put($fileName,$data);
+        
+
+        
 	    return response()->download($pb, $fileName);
         
 

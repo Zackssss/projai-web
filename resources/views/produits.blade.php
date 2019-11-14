@@ -10,6 +10,9 @@
 
 
     @foreach ($Produit as $Produit)
+        @section('other nav')
+        <a class="navbar-brand" href="/dljsonprod/{{$Produit-> id_produit}}">Download Json File</a>
+        @endsection
           <img src="{{$Produit-> url_image_produit}}" alt="photo">
                 <div class="Contenus">
                     <div>N° Produit = {{$Produit-> id_produit}} </div>
