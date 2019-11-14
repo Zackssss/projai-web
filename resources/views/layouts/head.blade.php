@@ -49,7 +49,7 @@
         }
         .col-12, .col-md-6, .col-lg-4 {
             padding: 1%;
-            
+
         }
         body{
             margin-bottom: 25%;
