@@ -13,6 +13,12 @@ class ProduitController extends Controller
         return view('boutique')-> with('Produit', $produit);
 
     }
+    public function Id()
+    {
+        $produit = Produit::all();
+        $produit = $produit->sortBy('id_produit');
+        return view('boutique')-> with('Produit', $produit);
+    }
     public function indexWithId()
     {
         $url = url()->full() ;
@@ -20,7 +26,7 @@ class ProduitController extends Controller
         $id=substr($url, -1);
         $produit = Produit::where('id_produit',$id)->get();
         
-        return view('produits')-> with('Produit', $produit)->with();
+        return view('produits')-> with('Produit', $produit);
         
         
 
