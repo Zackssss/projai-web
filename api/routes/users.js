@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 var User = require('../models/user');
 const bcrypt = require('bcrypt');
- 
+const jwt = require('jsonwebtoken');
+const checkAuth = require('../middleware/check-auth');
 
 router.post('/register', (req, res, next) => {
     User.findAUser(req.body.mail, function(err, user) {
@@ -49,12 +50,22 @@ router.post('/login', (req, res, next) => {
             res.send(err);
         }
         if (user.length){
-            bcrypt.hash(req.body.mdp, user.mdp, (err, result) => {
+            bcrypt.compare(req.body.mdp, user[0].mdp, (err, result) => {
                 if (err){
                     return res.status(401).json(user); 
                 }
                 if (result){
-                    return res.status(201).json(user)
+                    const token = jwt.sign({
+                        mail: user[0].mail,
+                        usersId: user[0].user_id,
+                        role: user[0].role
+                    }, "GroupeProjet",{
+                        expiresIn: "1h"
+                    })
+                    return res.status(201).json({
+                        user: user,
+                        token: token
+                    })
                 }
             })
         }
@@ -68,7 +79,7 @@ router.post('/login', (req, res, next) => {
 });
 
     //patch user by id
-router.patch('/:usersId', (req, res, next) => {
+router.patch('/:usersId', checkAuth, (req, res, next) => {
     var user = new User(req.body);
             User.updateUserById(req.params.usersId, user, function(err, user) {
         if (err)
@@ -79,7 +90,7 @@ router.patch('/:usersId', (req, res, next) => {
 
 
     //delete user by id
-router.delete('/:usersId', (req, res, next) => {
+router.delete('/:usersId', checkAuth, (req, res, next) => {
     User.deleteUser( req.params.usersId, function(err, user) {
         if (err)
           res.send(err);
