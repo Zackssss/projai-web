@@ -11,7 +11,13 @@ padding: 1%;
 font-size: 20px;
 
 }
-
+#boxombre2 {
+            border: 1px solid;
+            padding: 10px;
+            box-shadow: 5px 10px 8px #888888;
+            width: auto;
+            height: auto;
+        }
 
 
 </style>
@@ -24,8 +30,10 @@ font-size: 20px;
         
         @foreach ($Produit as $Produit)
             @if ($index<4)
-            
-            <div class="Contenus">
+            <div class="col-12 col-md-6 col-lg-4">
+              <div id="boxombre2">
+                <div class="Contenus">
+                
                 <img src="{{$Produit-> url_image_produit}}" alt="photo">
                 <div>N° Produit = {{$Produit-> id_produit}} </div>
                 <div>Nom Produit = {{$Produit-> nom_produit}}</div>
@@ -33,14 +41,16 @@ font-size: 20px;
                 <div>Prix = {{$Produit-> prix}}€  Nombre de Vente = {{$Produit-> nbr_de_vente}}</div>
                 <div>N° Evenement associer = {{$Produit-> id_evenement}}</div>
                 <div>Vente N° {{$index++}}</div>
+                </div>
             </div>
-            
+          </div>
             @else
                 
             @endif
             
             
         @endforeach
+        
    
    
 
