@@ -31,20 +31,26 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="prix" class="col-md-4 col-form-label text-md-right">{{ __('Prix') }}</label>
+                                <div class="form-group row">
+                                    <label for="prix" class="col-md-4 col-form-label text-md-right">{{ __('Prix') }}</label>
 
-                                <div class="col-md-6">
-                                    <input id="prix" type="text" class="form-control @error('prix') is-invalid @enderror" name="description" value="{{ old('prix') }}" required autocomplete="prix" autofocus>
+                                    <div class="col-md-6">
+                                        <input id="prix" type="text" class="form-control @error('prix') is-invalid @enderror" name="prix" value="{{ old('prix') }}" required autocomplete="prix" autofocus>
 
-                                    @error('prix')
-                                    <span class="invalid-feedback" role="alert">
+                                        @error('prix')
+                                        <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                    @enderror
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
+
+                                <div class="form-group row">
+                                    <label for="url_image_produit" class="col-md-4 col-form-label text-md-right">{{ __('Image') }}</label>
+                                    <input type="file" name="file" id="file">
+
                                 <div class="form-group">
                                     <button type = "submit" class="btn btn-success">Enregistrer</button>
+                                </div>
                                 </div>
                             </form>
