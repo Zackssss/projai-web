@@ -4,7 +4,7 @@
 @extends('layouts.footer')
 @extends('layouts.nav')
 </html>
-<?php 
+<?php
 $index=1
 ?>
 
@@ -27,10 +27,10 @@ float: left;
 #boxombre2 {
             border: 1px solid;
             padding: 10px;
-            
+
             width: auto;
             height: auto;
-            
+
         }
 
 </style>
@@ -38,25 +38,28 @@ float: left;
 
 @section('content')
 
-    
-    
+
+
     @foreach ($Evenement as $Evenement)
     @section('other nav')
-     {{-- 
+     {{--
                     @if ($_SESSION['role']!='guest')
-                    <div class="navbar-header"> 
+                    <div class="navbar-header">
                         <a class="navbar-brand" href="/dljsonevent/{{$Evenement-> id_evenement}}">Download Json File</a>
                     </div>
                     @endif
                     --}}
-    <div class="navbar-header"> 
+    <div class="navbar-header">
             <a class="navbar-brand" href="/dljsonevent/{{$Evenement-> id_evenement}}">Download Json File</a>
     </div>
-    <a class="navbar-brand" >Ajouter un event</a>
+     <div class="navbar-header">
+         <a class="navbar-brand" href="/createComment">Ajout Commentaire </a>
+     </div>
+
     @endsection
     @if ($index==1)
     <div class="Event">
-        <div class="N°" id="boxombre2">N° Evenement = {{$Evenement-> id_evenement}}<br>  
+        <div class="N°" id="boxombre2">N° Evenement = {{$Evenement-> id_evenement}}<br>
         <div class="Nom">Nom Evenement = {{$Evenement-> nom_evenement}}   <br>
         <div class="Id_créa">Id Auteur = {{$Evenement-> user_id}}       </div><br>  </div></div>
         <div id="boxombre2"><div class="Desc">Description = {{$Evenement-> description_evenement}}</div>
@@ -69,13 +72,13 @@ float: left;
     @endif
     <div class="col-12 col-md-6 col-lg-4">
         <div id="boxombre">
-                
+
         <img src="{{$Evenement-> chemin}}" alt="photo">
         <div>{{$Evenement -> id_image}}</div>
         <div>{{$Evenement -> id_commentaire}}</div>
             @if( $Evenement-> texte && $Evenement->visibilite_commentaire==1 )
             <div>{{$Evenement-> texte}}: de L'utilisateur N° {{$Evenement -> user_id_createur_com}}  </div>
-            @else 
+            @else
             <div> Pas de Commentaire </div>
             @endif
             <div> Likes : {{$Evenement-> appréciation}} </div>
@@ -84,16 +87,15 @@ float: left;
         </div>
     </div>
 
-    
-    @endforeach
-    
-   
 
-   
+
+
+
+@endforeach
+
 
 
 @endsection
-@section('other nav')
-    
-@endsection
+
+
 </body>

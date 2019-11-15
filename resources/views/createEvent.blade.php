@@ -1,4 +1,12 @@
-        <h1>Création d'évènement</h1>
+<!DOCTYPE html>
+<html>
+@extends('layouts.head')
+@extends('layouts.footer')
+@extends('layouts.nav')
+</html>
+
+@section('content')
+<h1>Création d'évènement</h1>
 
                             <form action="" method="post">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -71,3 +79,4 @@
                                     <button type = "submit" class="btn btn-success">Enregistrer</button>
                                 </div>
                             </form>
+@endsection

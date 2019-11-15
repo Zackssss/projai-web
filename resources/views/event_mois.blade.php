@@ -12,7 +12,7 @@
 </style>
 <body>
     @section('other nav')
-    <a class="navbar-brand" href="/" >Ajouter un event</a>
+    <a class="navbar-brand" href="/createEvent" >Ajouter un event</a>
     @endsection
         @section('content')
 
@@ -27,14 +27,14 @@
                             <div>Association = {{$Evenement -> association}}</div>
                             <div>Date de l'evenement = {{$Evenement-> date_evenement}} </div>
                             <div>Id créateur evenement = {{$Evenement-> user_id}}</div>
-            
+
                         </div>
-                        <button type="button" class="btn btn-primary"><a href="/evenements/{{$Evenement-> id_evenement}}"> Plus d'info</a></button>  
-            </div> 
-        </div>       
+                        <button type="button" class="btn btn-primary"><a href="/evenements/{{$Evenement-> id_evenement}}"> Plus d'info</a></button>
+            </div>
+        </div>
         @endforeach
-       
-    
-    
+
+
+
     @endsection
 </body>

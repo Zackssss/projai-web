@@ -36,17 +36,17 @@ background-color: #E5E8E8;
 
 @section('other nav')
 <ul class="nav navbar-nav">
-        
+
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="./boutique">Tri Boutique <span class="caret"></span></a>
             <ul class="dropdown-menu">
                 <li><a href="/boutique/Id">Tri par id</a></li>
-                
+
                 <li><a href="/boutique/prix">Tri par prix</a></li>
                 <li><a href="/boutique/event">Lier à un evenement</a></li>
                 <li><a href="/boutique/notevent">Lier à aucun evenement</a></li>
             </ul>
         </li>
-        <a class="navbar-brand" href="/">Ajouter un Produit</a>  
+        <a class="navbar-brand" href="/createProduit">Ajouter un Produit</a>
 </ul>
 
 @endsection
@@ -68,13 +68,13 @@ background-color: #E5E8E8;
                 </div>
 
                 <button type="button" class="btn btn-primary"><a href="/produits/{{$Produit-> id_produit}}"> Plus d'info</a></button>
-                {{-- 
+                {{--
                     @if ($_SESSION['role']!='guest')
                     <button type="button" class="btn btn-danger"><a href="/cart/{{$Produit-> id_produit}}"> Ajouter au panier</a></button>
                     @endif
                     --}}
                 <button type="button" class="btn btn-danger"><a href="/cart/{{$Produit-> id_produit}}"> Ajouter au panier</a></button>
-                
+
             </div>
         </div>
 

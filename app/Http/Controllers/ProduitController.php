@@ -25,9 +25,9 @@ class ProduitController extends Controller
     }
     public function indexWithId($id)
     {
-        
+
         $produit = Produit::where('id_produit',$id)->get();
-        
+
         return view('produits')-> with('Produit', $produit);
 
 
@@ -38,22 +38,22 @@ class ProduitController extends Controller
 
         $produit = Produit::where('id_produit',$id)->get();
         $data = json_encode($produit);
-        
 
-        
+
+
 
         $dt = Carbon::now(); // setting date
-        
+
         $dt=$dt->toDateString('Y-M-D');
         $fileName = 'produitN°'.$id."_".$dt.random_int(1,20000).'_datafile.json';
         $pb=public_path($fileName);
-        
-        File::put($fileName,$data);
-        
 
-        
+        File::put($fileName,$data);
+
+
+
 	    return response()->download($pb, $fileName);
-        
+
 
 
 
@@ -78,7 +78,7 @@ class ProduitController extends Controller
         $produit = $produit->sortBy('prix');
         return view('boutique')-> with('Produit', $produit);
     }
-    
+
     public function TriBoutiqueEvent()
     {
 
@@ -167,7 +167,7 @@ class ProduitController extends Controller
             $produit->description_produit = request('description_produit');
             $produit->prix = request('prix');
             $produit->nbr_de_vente = 0;
-            //$produit->user_id = ;//
+            $produit->id_evenement = request('id_evenement');
             $produit->save();
             return "Produit sauvegardé !";
         }

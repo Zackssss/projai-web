@@ -95,7 +95,11 @@ Route::get('/createProduit', 'ProduitController@create');
 
 Route::post('/createProduit', 'ProduitController@store');
 
- Route::get('/createEvent', 'EvenementController@create');
+Route::get('/createComment', 'CommentaireController@create');
+
+Route::post('/createComment', 'CommentaireController@store');
+
+Route::get('/createEvent', 'EvenementController@create');
 
 Route::post('/createEvent', 'EvenementController@store');
 
