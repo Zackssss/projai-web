@@ -11,6 +11,9 @@
 }
 </style>
 <body>
+    @section('other nav')
+    <a class="navbar-brand" href="/" >Ajouter un event</a>
+    @endsection
         @section('content')
 
 
