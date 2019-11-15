@@ -59,8 +59,9 @@ class LoginController extends Controller
             'Accept' => 'application/json'
         ],
             'json' => $userJson]);
-        $datas = json_decode($response->getBody(), true, 512, JSON_THROW_ON_ERROR);
-        return view('welcome');
+        $datas = json_decode($response->getBody(), false, 512);
+        $_SESSION['user'] = json_decode ($datas -> user, false, 512);
+        return $datas -> user;
     }
 
 }
