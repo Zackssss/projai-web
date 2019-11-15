@@ -13,7 +13,7 @@
 
 Auth::routes();
 
-Route::post('/register', 'Auth\RegisterController@store');
+Route::post('/register', 'Auth\RegisterController@callJson');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -57,6 +57,10 @@ Route::get('/cookies', function () {
 
 Route::get('/infoscontact', function () {
     return view('infoscontact');
+});
+
+Route::get('/polconfidentialite', function (){
+    return view('polconfidentialite');
 });
 
 Route::get('/boutique/Id', 'ProduitController@Id');

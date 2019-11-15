@@ -71,12 +71,12 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                <label for="mdp" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                    <input id="mdp" type="password" class="form-control @error('mdp') is-invalid @enderror" name="mdp" required autocomplete="new-password">
 
-                                    @error('password')
+                                    @error('mdp')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -93,7 +93,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="PdC" class="col-md-4 col-form-label text-md-right">{{ __('Politique de confidentialité') }}</label>
+                                <label for="PdC" class="col-md-4 col-form-label text-md-right"><a href="polconfidentialite"> Politique de confidentialité</a></label>
 
 
                                 <div class="col-md-6">
