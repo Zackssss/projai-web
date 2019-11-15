@@ -52,7 +52,7 @@ class EvenementController extends Controller
 
     public function downloadJSONFile($id)
     {
-        
+
 
        $Evenement = Evenement::where('evenements.id_evenement',$id)->leftjoin('images','evenements.id_evenement','=','images.id_evenement')
         ->leftjoin('commentaires','images.id_image','=','commentaires.id_image')->get();
@@ -60,24 +60,24 @@ class EvenementController extends Controller
 
 
         $data = json_encode($Evenement);
-        
 
-        
+
+
 
         $dt = Carbon::now(); // setting date
-        
+
         $dt=$dt->toDateString('Y-M-D');
         $fileName = 'eventN°'.$id."_".$dt.random_int(1,20000).'_datafile.json';
         $pb=public_path($fileName);
-        
+
         File::put($fileName,$data);
-        
 
-        
+
+
 	    return response()->download($pb, $fileName);
-        
 
-        
+
+
     }
 
 
@@ -85,7 +85,7 @@ class EvenementController extends Controller
         Evenement::where("id_commentaire",$idcom)->leftjoin('images','evenements.id_evenement','=','images.id_evenement')->leftjoin('commentaires','images.id_image','=','commentaires.id_image')->update(['visibilite_commentaire'=>0]);
         $Evenement = Evenement::where('evenements.id_evenement',$idevent)->leftjoin('images','evenements.id_evenement','=','images.id_evenement')
         ->leftjoin('commentaires','images.id_image','=','commentaires.id_image')->get();
-        
+
         return view('event')-> with('Evenement', $Evenement);
     }
    /*public function store(){
@@ -108,7 +108,7 @@ class EvenementController extends Controller
         $evenement->save();
         return "Evenement sauvegardé !";
     }*/
-   
+
     public function index()
     {
         $evenement = Evenement::paginate(100);
@@ -125,6 +125,7 @@ class EvenementController extends Controller
         $evenement->date_evenement = request('date_evenement');
         $evenement->recurence = request('recurence') ? 1 :0;
         $evenement->date_creation = date('Y-m-d', time());
+        $evenement->user_id = 2;
         $evenement->save();
         return "Evenement sauvegardé !";
     }
