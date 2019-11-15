@@ -19,6 +19,11 @@
                     <li><a href="/eventspasses">Events passés</a></li>
                 </ul>
             </li>
+            {{-- 
+                @if ($_SESSION['role']!='guest')
+                    <a class="navbar-brand" href="/dljsonimage">DL Json ALL Image</a>
+                @endif
+                --}}
             <a class="navbar-brand" href="/dljsonimage">DL Json ALL Image</a>
         </ul>
         @yield('other nav')
