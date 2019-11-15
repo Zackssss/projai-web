@@ -60,7 +60,7 @@ class LoginController extends Controller
         ],
             'json' => $userJson]);
         $datas = json_decode($response->getBody(), true, 512, JSON_THROW_ON_ERROR);
-        return $datas;
+        return view('welcome');
     }
 
 }

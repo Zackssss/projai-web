@@ -105,7 +105,7 @@ class RegisterController extends Controller
             'Accept' => 'application/json'
         ],
             'json' => $userJson]);
-        return  "Votre profil a bien été créé !";
+        return view('welcome');
         }
 
     public function show($id)

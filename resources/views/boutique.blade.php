@@ -46,7 +46,7 @@ background-color: #E5E8E8;
                 <li><a href="/boutique/notevent">Lier à aucun evenement</a></li>
             </ul>
         </li>
-        <a class="navbar-brand" href="/">Ajouter un Produit</a>  
+        <a class="navbar-brand" href="/createProduit">Ajouter un Produit</a>
 </ul>
 
 @endsection
@@ -74,7 +74,7 @@ background-color: #E5E8E8;
                     @endif
                     --}}
                 <button type="button" class="btn btn-danger"><a href="/cart/{{$Produit-> id_produit}}"> Ajouter au panier</a></button>
-                
+
             </div>
         </div>
 

@@ -1,4 +1,11 @@
+<!DOCTYPE html>
+<html>
+@extends('layouts.head')
+@extends('layouts.footer')
+@extends('layouts.nav')
 
+</html>
+@section('content')
 <h1>Création de produit</h1>
 
                             <form action="" method="post">
@@ -54,3 +61,4 @@
                                 </div>
                                 </div>
                             </form>
+@endsection
