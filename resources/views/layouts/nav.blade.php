@@ -20,7 +20,7 @@
                 </ul>
             </li>
             {{--
-                @if ($_SESSION['role']!='guest')
+                @if ($_SESSION['user']-> role = 'admin' || $_SESSION['user']-> role = 'BDE')
                     <a class="navbar-brand" href="/dljsonimage">DL Json ALL Image</a>
                 @endif
                 --}}
@@ -34,9 +34,11 @@
                 </a>
             </li>
             {{--
-                @if ($_SESSION['role']!='guest')
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> S'inscrire</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Se connecter</a></li>
+                @if ($_SESSION['user']->role)
+                <li><a href="/welcome/déco"><span class="glyphicon glyphicon-user"></span> S'inscrire</a></li>
+                @else
+                <li><a href="{{route('register')}}"><span class="glyphicon glyphicon-user"></span> S'inscrire</a></li>
+                <li><a href="{{route('login')}}"><span class="glyphicon glyphicon-log-in"></span> Se connecter</a></li>
                 @endif
                 --}}
             <li><a href="{{route('register')}}"><span class="glyphicon glyphicon-user"></span> S'inscrire</a></li>
