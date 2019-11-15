@@ -53,6 +53,9 @@ float: left;
             <a class="navbar-brand" href="/dljsonevent/{{$Evenement-> id_evenement}}">Download Json File</a>
     </div>
      <div class="navbar-header">
+         <a class="navbar-brand" href="/createImage">Ajout Image </a>
+     </div>
+     <div class="navbar-header">
          <a class="navbar-brand" href="/createComment">Ajout Commentaire </a>
      </div>
 

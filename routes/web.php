@@ -99,6 +99,10 @@ Route::get('/createComment', 'CommentaireController@create');
 
 Route::post('/createComment', 'CommentaireController@store');
 
+Route::get('/createImage', 'ImageController@create');
+
+Route::post('/createImage', 'ImageController@store');
+
 Route::get('/createEvent', 'EvenementController@create');
 
 Route::post('/createEvent', 'EvenementController@store');
