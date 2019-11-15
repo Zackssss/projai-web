@@ -74,8 +74,8 @@ float: left;
         <div id="boxombre">
 
         <img src="{{$Evenement-> chemin}}" alt="photo">
-        <div>{{$Evenement -> id_image}}</div>
-        <div>{{$Evenement -> id_commentaire}}</div>
+        <div>Image N°{{$Evenement -> id_image}}</div>
+        <div>Commentaire N°{{$Evenement -> id_commentaire}}</div>
             @if( $Evenement-> texte && $Evenement->visibilite_commentaire==1 )
             <div>{{$Evenement-> texte}}: de L'utilisateur N° {{$Evenement -> user_id_createur_com}}  </div>
             @else

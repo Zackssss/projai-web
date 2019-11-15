@@ -69,7 +69,7 @@ background-color: #E5E8E8;
 
                 <button type="button" class="btn btn-primary"><a href="/produits/{{$Produit-> id_produit}}"> Plus d'info</a></button>
                 {{--
-                    @if ($_SESSION['role']!='guest')
+                    @if ($_SESSION['user']->role !='guest')
                     <button type="button" class="btn btn-danger"><a href="/cart/{{$Produit-> id_produit}}"> Ajouter au panier</a></button>
                     @endif
                     --}}
