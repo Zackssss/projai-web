@@ -82,7 +82,11 @@ router.post('/login', (req, res, next) => {
                         expiresIn: "12h"
                     })
                     return res.status(201).json({
-                        user: user,
+                        nom: user.nom,
+                        prenom: user.prenom,
+                        centre: user.centre,
+                        mail: user.mail,
+                        role: user.role,
                         token: token
                     })
                 }
