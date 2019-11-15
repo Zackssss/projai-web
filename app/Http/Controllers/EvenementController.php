@@ -60,7 +60,6 @@ class EvenementController extends Controller
 
 
         $data = json_decode($Evenement,true);
-        dd($data);
         $html2pdf = new Html2Pdf();
         $html2pdf->writeHTML(implode(",", $data[0]));
         $html2pdf->output();
