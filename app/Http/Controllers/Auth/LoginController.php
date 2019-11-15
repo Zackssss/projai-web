@@ -55,7 +55,7 @@ class LoginController extends Controller
             'mail' => $request->input('mail'),
             'mdp' => $request->input('mdp'),
 ];
-        $response = $client->request('POST', 'localhost:8080/users/register', ['headers' => [
+        $response = $client->request('POST', 'localhost:8080/users/login', ['headers' => [
             'Accept' => 'application/json'
         ],
             'json' => $userJson]);
