@@ -52,7 +52,13 @@ float: left;
     <div class="navbar-header">
             <a class="navbar-brand" href="/dljsonevent/{{$Evenement-> id_evenement}}">Download Pdf File</a>
     </div>
-    
+     <div class="navbar-header">
+         <a class="navbar-brand" href="/createImage">Ajout Image </a>
+     </div>
+     <div class="navbar-header">
+         <a class="navbar-brand" href="/createComment">Ajout Commentaire </a>
+     </div>
+
     @endsection
     @if ($index==1)
     <div class="Event">
