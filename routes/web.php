@@ -15,6 +15,8 @@ Auth::routes();
 
 Route::post('/register', 'Auth\RegisterController@callJson');
 
+Route::post('/login', 'Auth\LoginController@callJson');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', function () {
@@ -39,14 +41,14 @@ Route::get('/conditions', function () {
 });
 
 Route::get('send-mail/{prix}', function ($prix) {
-    
+
     $details = [
         'title' => 'Voila ma commande!',
         'body' => 'Le panier vaut'.$prix.'€'
     ];
-   
+
     \Mail::to('valireinb@gmail.com')->send(new \App\Mail\MailPourBde($details));
-   
+
     return view('welcome');
 
 });
