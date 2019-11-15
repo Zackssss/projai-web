@@ -2,22 +2,14 @@
 
 namespace App\Providers;
 
+use App\Providers\LoginUserProvider;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
 
 class AuthServiceProvider extends ServiceProvider
 {
     /**
-     * The policy mappings for the application.
-     *
-     * @var array
-     */
-    protected $policies = [
-        // 'App\Model' => 'App\Policies\ModelPolicy',
-    ];
-
-    /**
-     * Register any authentication / authorization services.
+     * Register any application authentication / authorization services.
      *
      * @return void
      */
@@ -25,6 +17,10 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Auth::provider('riak', function ($app, array $config) {
+            // Return an instance of Illuminate\Contracts\Auth\UserProvider...
+
+            return new LoginUserProvider($app->make('login.connection'));
+        });
     }
 }
