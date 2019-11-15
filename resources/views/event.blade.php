@@ -23,6 +23,7 @@ float: left;
 
 
 }
+
 #boxombre2 {
             border: 1px solid;
             padding: 10px;
@@ -41,9 +42,16 @@ float: left;
     
     @foreach ($Evenement as $Evenement)
     @section('other nav')
-    <div class="navbar-header">
+     {{-- 
+                    @if ($_SESSION['role']!='guest')
+                    <div class="navbar-header"> 
+                        <a class="navbar-brand" href="/dljsonevent/{{$Evenement-> id_evenement}}">Download Json File</a>
+                    </div>
+                    @endif
+                    --}}
+    <div class="navbar-header"> 
             <a class="navbar-brand" href="/dljsonevent/{{$Evenement-> id_evenement}}">Download Json File</a>
-        </div>
+    </div>
     @endsection
     @if ($index==1)
     <div class="Event">

@@ -47,6 +47,11 @@
 
     @foreach ($Produit as $Produit)
         @section('other nav')
+        {{-- 
+                    @if ($_SESSION['role']!='guest')
+                    <a class="navbar-brand" href="/dljsonprod/{{$Produit-> id_produit}}">Download Json File</a>
+                    @endif
+                    --}}
         <a class="navbar-brand" href="/dljsonprod/{{$Produit-> id_produit}}">Download Json File</a>
         @endsection
             
