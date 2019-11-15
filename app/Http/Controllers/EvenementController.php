@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use View;
 use File;
 use Response;
-
+use Spipu\Html2Pdf\Html2Pdf;
 class EvenementController extends Controller
 {
     public function create(){
@@ -59,10 +59,13 @@ class EvenementController extends Controller
 
 
 
-        $data = json_encode($Evenement);
-
-
-
+        $data = json_decode($Evenement,true);
+        dd($data);
+        $html2pdf = new Html2Pdf();
+        $html2pdf->writeHTML(implode(",", $data[0]));
+        $html2pdf->output();
+        // if you want to Dl as json comment all $html2pd and uncomment bellow
+        /*
 
         $dt = Carbon::now(); // setting date
 
@@ -75,7 +78,7 @@ class EvenementController extends Controller
 
 
 	    return response()->download($pb, $fileName);
-
+*/
 
 
     }

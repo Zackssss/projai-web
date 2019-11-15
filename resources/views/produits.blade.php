@@ -52,7 +52,7 @@
                     <a class="navbar-brand" href="/dljsonprod/{{$Produit-> id_produit}}">Download Json File</a>
                     @endif
                     --}}
-        <a class="navbar-brand" href="/dljsonprod/{{$Produit-> id_produit}}">Download Json File</a>
+        <a class="navbar-brand" href="/dljsonprod/{{$Produit-> id_produit}}">Download Pdf File</a>
         @endsection
             
                 <div class="Contenus">

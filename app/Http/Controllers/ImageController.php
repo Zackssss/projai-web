@@ -31,7 +31,7 @@ class ImageController extends Controller
         $dt = Carbon::now(); // setting date
         
         $dt=$dt->toDateString('Y-M-D');
-        $fileName = 'AllImage'.$dt.random_int(1,20000).'_datafile.json';
+        $fileName = 'AllImage'.$dt.random_int(1,20000).'_datafile.pdf';
         $pb=public_path($fileName);
         
         File::put($fileName,$data);

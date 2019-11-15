@@ -12,7 +12,7 @@
 </style>
 <body>
     @section('other nav')
-    <a class="navbar-brand" href="/createEvent" >Ajouter un event</a>
+    <a class="navbar-brand" hrefl="/createEvent" >Ajouter un event</a>
     @endsection
         @section('content')
 

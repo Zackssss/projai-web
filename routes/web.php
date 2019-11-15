@@ -23,6 +23,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/welcome/déco', function () {
+    session_destroy();
+    return view('welcome');
+});
+
 Route::get('/panier', function () {
     return view('panier');
 });

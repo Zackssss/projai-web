@@ -8,6 +8,7 @@ use Response;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Spipu\Html2Pdf\Html2Pdf;
 class ProduitController extends Controller
 {
     public function index()
@@ -37,23 +38,26 @@ class ProduitController extends Controller
     {
 
         $produit = Produit::where('id_produit',$id)->get();
-        $data = json_encode($produit);
+        $data = json_decode($produit,true);
+        
 
-
-
-
+        $html2pdf = new Html2Pdf();
+        $html2pdf->writeHTML(implode(",", $data[0]));
+        $html2pdf->output();
+        // if you want to Dl as json comment all $html2pd and uncomment bellow
+        /*
         $dt = Carbon::now(); // setting date
 
         $dt=$dt->toDateString('Y-M-D');
-        $fileName = 'produitN°'.$id."_".$dt.random_int(1,20000).'_datafile.json';
+        $fileName = 'produitN°'.$id."_".$dt.random_int(1,20000).'_datafile.pdf';
         $pb=public_path($fileName);
 
-        File::put($fileName,$data);
+        File::put($fileName,$htmlpdf);
 
 
 
 	    return response()->download($pb, $fileName);
-
+        */
 
 
 
