@@ -1,14 +1,11 @@
 <?php
-
 namespace App\Http\Controllers\Auth;
-
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-
 class RegisterController extends Controller
 {
     /*
@@ -21,16 +18,13 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
-
     use RegistersUsers;
-
     /**
      * Where to redirect users after registration.
      *
      * @var string
      */
     protected $redirectTo = '/home';
-
     /**
      * Create a new controller instance.
      *
@@ -40,7 +34,6 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
-
     /**
      * Get a validator for an incoming registration request.
      *
@@ -58,7 +51,6 @@ class RegisterController extends Controller
             'PdC' => ['required']
         ]);
     }
-
     /**
      * Create a new user instance after a valid registration.
      *
@@ -75,31 +67,32 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
-
     public function store(Request $request)
     {
-        $user = $request->isMethod('put') ? User::findOrFail($request->id) : new User;
-        $user->id = $request->input('id');
+        /*$user = [
+            'nom' => $request->input('nom'),
+            'prenom' => $request->input('prenom'),
+            'centre' => $request->input('centre'),
+            'mail' => $request->input('mail'),
+            'password' => $request->input('password'),
+        ];*/
+        $user = new User;
         $user->nom = $request->input('nom');
         $user->prenom = $request->input('prenom');
         $user->centre = $request->input('centre');
         $user->mail = $request->input('mail');
         $user->password = $request->input('password');
-
-        if ($user->save()) {
-            return new User($user);
+        return json_encode($user);
         }
-    }
+
     public function show($id)
     {
         $user = User::findOrFail($id);
-
         return new User($user);
     }
     public function destroy($id)
     {
         $user = User::findOrFail($id);
-
         return new User($user);
     }
 }

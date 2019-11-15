@@ -13,6 +13,8 @@
 
 Auth::routes();
 
+Route::post('/register', 'Auth\RegisterController@store');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', function () {
@@ -29,10 +31,24 @@ Route::get('/evenements/{id}', 'EvenementController@eventcemois');
 Route::get('/evenementscacher/{idcom}/{idevent}', 'EvenementController@ComHide');
 Route::get('/evenementscacher/{id}', 'EvenementController@eventcemois');
 Route::get('/eventmois','EvenementController@EventMois' );
+Route::get('/dljsonimage','ImageController@dlimagejson' );
 Route::get('/dljsonevent/{id}','EvenementController@downloadJSONFile' );
-
+Route::get('/dljsonprod/{id}','ProduitController@dljsonprod' );
 Route::get('/conditions', function () {
     return view('conditions');
+});
+
+Route::get('send-mail/{prix}', function ($prix) {
+    
+    $details = [
+        'title' => 'Voila ma commande!',
+        'body' => 'Le panier vaut'.$prix.'€'
+    ];
+   
+    \Mail::to('valireinb@gmail.com')->send(new \App\Mail\MailPourBde($details));
+   
+    return view('welcome');
+
 });
 
 Route::get('/cookies', function () {

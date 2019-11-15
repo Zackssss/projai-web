@@ -19,6 +19,12 @@
                     <li><a href="/eventspasses">Events passés</a></li>
                 </ul>
             </li>
+            {{-- 
+                @if ($_SESSION['role']!='guest')
+                    <a class="navbar-brand" href="/dljsonimage">DL Json ALL Image</a>
+                @endif
+                --}}
+            <a class="navbar-brand" href="/dljsonimage">DL Json ALL Image</a>
         </ul>
         @yield('other nav')
         <ul class="nav navbar-nav navbar-right">
@@ -27,6 +33,12 @@
                     </span>
                 </a>
             </li>
+            {{-- 
+                @if ($_SESSION['role']!='guest')
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> S'inscrire</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Se connecter</a></li>
+                @endif
+                --}}
             <li><a href="#"><span class="glyphicon glyphicon-user"></span> S'inscrire</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Se connecter</a></li>
         </ul>

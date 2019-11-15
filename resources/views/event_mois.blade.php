@@ -4,6 +4,12 @@
 @extends('layouts.footer')
 @extends('layouts.nav')
 </html>
+<style>
+#boxombre{
+
+    background-color: #E5E8E8;
+}
+</style>
 <body>
         @section('content')
 
