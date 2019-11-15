@@ -8,8 +8,8 @@
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="./boutique">La Boutique <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a href="/boutique">Boutique</a></li>
-                    
-                    
+
+
                     <li><a href="/toparticles">Nos articles les plus vendus</a></li>
                 </ul>
             </li>
@@ -27,9 +27,9 @@
                     </span>
                 </a>
             </li>
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> S'inscrire</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Se connecter</a></li>
+            <li><a href="{{route('register')}}"><span class="glyphicon glyphicon-user"></span> S'inscrire</a></li>
+            <li><a href="{{route('login')}}"><span class="glyphicon glyphicon-log-in"></span> Se connecter</a></li>
         </ul>
-        
+
     </div>
 </nav>

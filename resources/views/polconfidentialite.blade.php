@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+@extends('layouts.head')
+@extends('layouts.footer')
+@extends('layouts.nav')
+</html>
+<body>
 @section('content')
 
     <p>Sécurité et protection des données personnelles</p>
@@ -46,5 +53,8 @@
         <h3>En cas de modification des présentes CGU, engagement de ne pas baisser le niveau de confidentialité de manière substantielle sans l'information préalable des personnes concernées</h3>
     Nous nous engageons à vous informer en cas de modification substantielle des présentes CGU, et à ne pas baisser le niveau de confidentialité de vos données de manière substantielle sans vous en informer et obtenir votre consentement.
 
-
 @endsection
+
+@show
+
+</body>

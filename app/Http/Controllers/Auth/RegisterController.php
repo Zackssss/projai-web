@@ -2,6 +2,8 @@
 namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\User;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -25,6 +27,7 @@ class RegisterController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
+
     /**
      * Create a new controller instance.
      *
@@ -47,7 +50,7 @@ class RegisterController extends Controller
             'prenom' => ['required', 'string', 'max:255'],
             'centre' => ['required', 'string', 'max:255'],
             'mail' => ['required', 'string', 'mail', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
             'PdC' => ['required']
         ]);
     }
@@ -69,20 +72,40 @@ class RegisterController extends Controller
     }
     public function store(Request $request)
     {
-        /*$user = [
-            'nom' => $request->input('nom'),
+        $user = ['nom' => $request->input('nom'),
             'prenom' => $request->input('prenom'),
             'centre' => $request->input('centre'),
             'mail' => $request->input('mail'),
-            'password' => $request->input('password'),
-        ];*/
-        $user = new User;
-        $user->nom = $request->input('nom');
-        $user->prenom = $request->input('prenom');
-        $user->centre = $request->input('centre');
-        $user->mail = $request->input('mail');
-        $user->password = $request->input('password');
+            'mdp' => $request->input('mdp'),
+            'role' => 'etudiant'];
         return json_encode($user);
+
+
+
+    }
+
+    /**
+     * Create a new user instance after a valid registration.
+     *
+     *
+     * @param Request $request
+     * @throws GuzzleException
+     */
+
+    public function callJson(Request $request){
+        $client = new Client();
+        $userJson = ['nom' => $request->input('nom'),
+            'prenom' => $request->input('prenom'),
+            'centre' => $request->input('centre'),
+            'mail' => $request->input('mail'),
+            'mdp' => $request->input('mdp'),
+            'role' => 'etudiant'];
+
+        $response = $client->request('POST', 'localhost:8080/users/register', ['headers' => [
+            'Accept' => 'application/json'
+        ],
+            'json' => $userJson]);
+        return json_encode($userJson);
         }
 
     public function show($id)
