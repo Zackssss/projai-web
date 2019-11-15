@@ -60,8 +60,8 @@ class LoginController extends Controller
         ],
             'json' => $userJson]);
         $datas = json_decode($response->getBody(), false, 512);
-        $_SESSION['user'] = json_decode ($datas -> user, false, 512);
-        return $datas -> user;
+        $_SESSION['user'] = $datas -> user;
+        return $_SESSION['user'];
     }
 
 }
