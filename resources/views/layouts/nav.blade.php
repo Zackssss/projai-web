@@ -8,8 +8,8 @@
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="./boutique">La Boutique <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a href="/boutique">Boutique</a></li>
-                    
-                    
+
+
                     <li><a href="/toparticles">Nos articles les plus vendus</a></li>
                 </ul>
             </li>
@@ -19,7 +19,7 @@
                     <li><a href="/eventspasses">Events passés</a></li>
                 </ul>
             </li>
-            {{-- 
+            {{--
                 @if ($_SESSION['role']!='guest')
                     <a class="navbar-brand" href="/dljsonimage">DL Json ALL Image</a>
                 @endif
@@ -33,15 +33,15 @@
                     </span>
                 </a>
             </li>
-            {{-- 
+            {{--
                 @if ($_SESSION['role']!='guest')
                     <li><a href="#"><span class="glyphicon glyphicon-user"></span> S'inscrire</a></li>
                     <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Se connecter</a></li>
                 @endif
                 --}}
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> S'inscrire</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Se connecter</a></li>
+            <li><a href="{{route('register')}}"><span class="glyphicon glyphicon-user"></span> S'inscrire</a></li>
+            <li><a href="{{route('login')}}"><span class="glyphicon glyphicon-log-in"></span> Se connecter</a></li>
         </ul>
-        
+
     </div>
 </nav>
