@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Spipu\Html2Pdf\Html2Pdf;
+
 class ProduitController extends Controller
 {
     public function index()
@@ -39,7 +40,7 @@ class ProduitController extends Controller
 
         $produit = Produit::where('id_produit',$id)->get();
         $data = json_decode($produit,true);
-        
+
 
         $html2pdf = new Html2Pdf();
         $html2pdf->writeHTML(implode(",", $data[0]));

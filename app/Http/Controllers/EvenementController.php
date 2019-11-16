@@ -91,26 +91,6 @@ class EvenementController extends Controller
 
         return view('event')-> with('Evenement', $Evenement);
     }
-   /*public function store(){
-         Evenement::firstOrCreate([
-            'nom_evenement' => request('nom_evenement'),
-            'association' => request('association'),
-            'description_evenement' => request('description_evenement'),
-            'date_evenement' => request('date_evenement'),
-            'recurrence' => request('recurrence'),
-            'prix' => request('prix')
-         ]);*/
-
-        /*$evenement = new Evenement();
-        $evenement->nom_evenement = request('nom_evenement');
-        $evenement->association = request('association');
-        $evenement->description_evenement = request('description_evenement');
-        $evenement->date_evenement = request('date_evenement');
-        $evenement->recurrence = request('recurrence');
-        $evenement->prix = request('prix');
-        $evenement->save();
-        return "Evenement sauvegardé !";
-    }*/
 
     public function index()
     {

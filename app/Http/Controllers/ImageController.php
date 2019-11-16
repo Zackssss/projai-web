@@ -48,7 +48,7 @@ class ImageController extends Controller
         $image->visibilite_image = 1;
         $image->appréciation = 0;
         $image->user_id_createur_img = 2;
-        $image->id_evenement = 2;
+        $image->id_evenement = request('id_evenement');;
         $image->save();
         return "Image sauvegardé !";
 
