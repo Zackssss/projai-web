@@ -70,27 +70,14 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
-    public function store(Request $request)
-    {
-        $user = ['nom' => $request->input('nom'),
-            'prenom' => $request->input('prenom'),
-            'centre' => $request->input('centre'),
-            'mail' => $request->input('mail'),
-            'mdp' => $request->input('mdp'),
-            'role' => 'etudiant'];
-        return json_encode($user);
-
-
-
-    }
 
     /**
-     * Create a new user instance after a valid registration.
-     *
-     *
      * @param Request $request
      * @throws GuzzleException
      */
+
+    /* Permet d'envoyer les informations écrites et définies vers l'API sous le format .json.
+    Cela permettra ainsi de remplir la BDD dans l'Api et de remplir la table user */
 
     public function callJson(Request $request){
         $client = new Client();
@@ -108,14 +95,4 @@ class RegisterController extends Controller
         return view('welcome');
         }
 
-    public function show($id)
-    {
-        $user = User::findOrFail($id);
-        return new User($user);
-    }
-    public function destroy($id)
-    {
-        $user = User::findOrFail($id);
-        return new User($user);
-    }
 }

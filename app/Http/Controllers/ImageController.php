@@ -14,6 +14,8 @@ use Carbon\Carbon;
 
 class ImageController extends Controller
 {
+    //Renvoie vers la vue de la création d'image
+
     public function create()
     {
 
@@ -40,6 +42,8 @@ class ImageController extends Controller
         return response()->download($pb, $fileName);
 
     }
+
+    //Permet d'envoyer les informations écrites et définies vers la BDD dans la table image.
 
     public function store()
     {

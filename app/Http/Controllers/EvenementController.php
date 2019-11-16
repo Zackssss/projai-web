@@ -11,7 +11,10 @@ use File;
 use Response;
 use Spipu\Html2Pdf\Html2Pdf;
 class EvenementController extends Controller
+
 {
+    //Renvoie vers la vue de la création d'évènement
+
     public function create(){
 
         return view('createEvent');
@@ -91,14 +94,9 @@ class EvenementController extends Controller
         return view('event')-> with('Evenement', $Evenement);
     }
 
-    public function index()
-    {
-        $evenement = Evenement::paginate(100);
+    //Permet d'envoyer les informations écrites et définies vers la BDD dans la table évènement.
 
-        return Evenement::collection($evenement);
-    }
-
-        public function store(){
+    public function store(){
 
         $evenement = new Evenement();
         $evenement->nom_evenement = request('nom_evenement');
@@ -111,17 +109,5 @@ class EvenementController extends Controller
         $evenement->save();
         return "Evenement sauvegardé !";
     }
-    public function show($id)
-    {
-        $evenement = Evenement::findOrFail($id);
 
-        return new Evenement($evenement);
-    }
-
-    public function destroy($id)
-    {
-        $evenement = Evenement::findOrFail($id);
-
-        return new Evenement($evenement);
-    }
 }

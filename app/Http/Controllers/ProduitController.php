@@ -99,6 +99,9 @@ class ProduitController extends Controller
 
     }
 
+    /*Fonction permettant d'ajouter dans le panier le produit que l'on a sélectionné dans la boutique.
+    La page sera actualisé après le click afin d'incrémenter le compteur de l'icône panier.*/
+
     public function addCart(Request $request, $id){
 
         $produit = Produit::where('id_produit',$id)->first();
@@ -111,6 +114,9 @@ class ProduitController extends Controller
         return redirect()->route('boutique');
     }
 
+    /*Fonction permettant d'incrémenter dans le panier la quantité un produit étant déjà dans le panier.
+    La page sera actualisée après le click afin d'incrémenter le compteur de la quantité du produit.*/
+
     public function addInCart($id){
 
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
@@ -120,6 +126,9 @@ class ProduitController extends Controller
         Session::put('cart', $cart);
         return redirect()->route('shoppingCart');
     }
+
+    /*Fonction permettant de diminuer dans le panier la quantité un produit étant déjà dans le panier.
+    La page sera actualisée après le click afin de diminuer le compteur de la quantité du produit.*/
 
     public function reduceCart($id){
 
@@ -136,6 +145,9 @@ class ProduitController extends Controller
         return redirect()->route('shoppingCart');
     }
 
+    /*Fonction permettant d'enlever du panier un produit étant déjà dans le panier.
+    La page sera actualisée après le click afin d'enlever le produit du panier.*/
+
     public function removeCart($id){
 
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
@@ -151,6 +163,8 @@ class ProduitController extends Controller
         return redirect()->route('shoppingCart');
     }
 
+    //Fonction permettant d'afficher un message (réalisé dans la vue) dans le cas où il n'y a plus de produit dans le panier.
+
     public function shoppingCart(){
         if (!Session::has('cart')){
             return view('panier', ['produit' => null]);
@@ -160,41 +174,25 @@ class ProduitController extends Controller
         return view('panier', ['produit' => $cart -> items, 'prixTotal' => $cart -> prixTotal]);
     }
 
+    //Renvoie vers la vue de la création de produit
+
     public function create()
     {
         return view('createProduit');
     }
 
-        public function store(){
-            $produit = new Produit();
-            $produit->url_image_produit = request('url_image_produit');
-            $produit->nom_produit = request('nom_produit');
-            $produit->description_produit = request('description_produit');
-            $produit->prix = request('prix');
-            $produit->nbr_de_vente = 0;
-            $produit->id_evenement = request('id_evenement');
-            $produit->save();
-            return "Produit sauvegardé !";
+    //Permet d'envoyer les informations écrites et définies vers la BDD dans la table produit.
+
+    public function store(){
+        $produit = new Produit();
+        $produit->url_image_produit = request('url_image_produit');
+        $produit->nom_produit = request('nom_produit');
+        $produit->description_produit = request('description_produit');
+        $produit->prix = request('prix');
+        $produit->nbr_de_vente = 0;
+        $produit->id_evenement = request('id_evenement');
+        $produit->save();
+        return "Produit sauvegardé !";
         }
-       /*public function store(Request $request)
-       {
-           $produit = $request->isMethod('put') ? Produit::findOrFail($request->id) : new Produit();
-           $produit->id = $request->input('id');
-           $produit->nom_produit = $request->input('nom_produit');
-           $produit->description_produit = $request->input('description_produit');
-           $produit->prix = $request->input('prix');
-           if ($produit->save()) {
-               return new Produit($produit);
-           }
-       }
-       public function show($id)
-       {
-           $produit = Produit::findOrFail($id);
-           return new Produit($produit);
-       }
-       public function destroy($id)
-       {
-           $produit = Produit::findOrFail($id);
-           return new Produit($produit);
-       }*/
+
 }

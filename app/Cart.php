@@ -18,6 +18,9 @@ class Cart extends Model
         $this->prixTotal = $oldCart->prixTotal;
     }
 }
+    /* Fonction appelée par le controleur afin d'ajouter un produit dans le panier en choississant dans la boutique.
+    On va ainsi avoir la quantité du produit ainsi que son prix en fonction de la quantité. */
+
     public function add($item, $id){
          $storedItem = ['quantite' => 0, 'prix' => $item->prix, 'item' => $item];
          if ($this->items){
@@ -32,12 +35,20 @@ class Cart extends Model
          $this->prixTotal += $item->prix;
     }
 
+    /* Fonction appelée par le controleur afin d'incrémenter un produit existant dans le panier.
+    On va ainsi avoir la quantité du produit ainsi que son prix en fonction de la quantité. */
+
     public function addIn($id){
         $this->items[$id]['quantite']++;
         $this->items[$id]['prix'] += $this->items[$id]['item']['prix'];
         $this->quantiteTotal++;
         $this->prixTotal += $this->items[$id]['item']['prix'];
     }
+
+    /* Fonction appelée par le controleur afin de diminuer un produit existant dans le panier.
+    On va ainsi avoir la quantité du produit ainsi que son prix en fonction de la quantité.
+    Dans le cas où la quantite du produit est égale à 0 dans le panier, cela
+    va le supprimer du panier */
 
     public function reduce($id){
          $this->items[$id]['quantite']--;
@@ -49,6 +60,9 @@ class Cart extends Model
              unset($this->items[$id]);
          }
     }
+
+    // Fonction appelée par le controleur afin d'enlever un produit existant dans le panier.
+
     public function remove($id){
         $this->quantiteTotal -= $this->items[$id]['quantite'];
         $this->prixTotal -= $this->items[$id]['prix'];

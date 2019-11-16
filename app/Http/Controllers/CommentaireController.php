@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class CommentaireController extends Controller
 
+{
     //Renvoie vers la vue de la création de commentaire
 
-{
     public function create()
     {
         return view('createComment');

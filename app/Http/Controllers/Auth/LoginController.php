@@ -41,13 +41,12 @@ class LoginController extends Controller
     }
 
     /**
-     * Create a new user instance after a valid registration.
-     *
-     *
      * @param Request $request
      * @return mixed
      * @throws GuzzleException
      */
+
+    /* Permet d'envoyer les informations écrites vers l'API afin de comparer ces informations avec celles de l'APi.*/
 
     public function callJson(Request $request){
         $client = new Client();
