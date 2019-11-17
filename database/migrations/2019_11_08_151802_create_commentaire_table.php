@@ -10,6 +10,7 @@ class CreateCommentaireTable extends Migration
 {
     /**
      * Run the migrations.
+     * Permet de crée la table commentaire
      *
      * @return void
      */

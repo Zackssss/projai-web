@@ -10,7 +10,7 @@ class CreateCommandeTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * Permet de crée la table commandes
      * @return void
      */
     public function up()

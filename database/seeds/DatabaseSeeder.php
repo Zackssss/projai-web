@@ -6,7 +6,7 @@ class DatabaseSeeder extends Seeder
 {
     /**
      * Seed the application's database.
-     *
+     * Crée de fausses données dans la base de données
      * @return void
      */
     public function run()

@@ -11,7 +11,8 @@ use Illuminate\Support\Facades\Session;
 use Spipu\Html2Pdf\Html2Pdf;
 
 class ProduitController extends Controller
-{
+{   
+    //permet de récuperrer la liste des produits.
     public function index()
     {
 
@@ -19,12 +20,14 @@ class ProduitController extends Controller
         return view('boutique')-> with('Produit', $produit);
 
     }
+    //permet de trier les produits par ID.
     public function Id()
     {
         $produit = Produit::all();
         $produit = $produit->sortBy('id_produit');
         return view('boutique')-> with('Produit', $produit);
     }
+    //permet de récuperer un produit par son ID.
     public function indexWithId($id)
     {
 
@@ -35,6 +38,7 @@ class ProduitController extends Controller
 
 
     }
+    // permet de téllecharger un Json ou un Pdf contennant les données associer a un produit.
     public function dljsonprod($id)
     {
 
@@ -64,26 +68,28 @@ class ProduitController extends Controller
 
 
     }
+    //permet de récuperer les produit et les trier par nombre de vente .
     public function indextop3()
     {
         $produit = Produit::all();
         $produit = $produit->sortByDesc('nbr_de_vente');
         return view('toparticles')-> with('Produit', $produit);
     }
+    //permet de récuperer les produits et les trier par ID.
     public function TriBoutiqueId()
     {
         $produit = Produit::all();
         $produit = $produit->sortBy('id_produit');
         return view('boutique')-> with('Produit', $produit);
     }
-
+    //peremt d'afficher la boutique par prix.
     public function TriBoutiquePrix()
     {
         $produit = Produit::all();
         $produit = $produit->sortBy('prix');
         return view('boutique')-> with('Produit', $produit);
     }
-
+    // permet d'afficher les produit lier a un evenement.
     public function TriBoutiqueEvent()
     {
 
@@ -91,6 +97,7 @@ class ProduitController extends Controller
         return view('boutique')-> with('Produit', $produit);
 
     }
+    // permet d'afficher les produit pas lier a un evenment.
     public function TriBoutiqueNotEvent()
     {
 

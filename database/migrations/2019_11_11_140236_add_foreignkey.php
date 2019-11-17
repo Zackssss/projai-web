@@ -7,8 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class AddForeignkey extends Migration
 {
     /**
-     * Creating all the foreign keys
-     * test
+     * Permet de crée toutes les foreign key dans les tables
      *
      * @return void
      */

@@ -11,7 +11,7 @@ class CreateImageTable extends Migration
     
     /**
      * Run the migrations.
-     *
+     * Permet de crée la table image
      * @return void
      */
     public function up()

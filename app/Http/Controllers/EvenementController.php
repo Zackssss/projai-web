@@ -30,6 +30,7 @@ class EvenementController extends Controller
         return view('event_mois')-> with('Evenement', $Evenement);
 
     }
+    //permet de voir les evenements qui sont déjà passer.
     public function eventpassé(){
 
         $dt = Carbon::now(); // setting date
@@ -40,6 +41,7 @@ class EvenementController extends Controller
 
         return view('event_mois')-> with('Evenement', $Evenement);
     }
+    //permet de voir un evenement et tout les commentaires et images qui en découle.
     public function eventcemois($id)
     {
 
@@ -52,7 +54,7 @@ class EvenementController extends Controller
         return view('event')-> with('Evenement', $Evenement);
     }
 
-
+    //permet de téllécharger un fichier Json ou pdf des données relatives a un évenement.
     public function downloadJSONFile($id)
     {
 
@@ -85,7 +87,7 @@ class EvenementController extends Controller
 
     }
 
-
+    //permet de cacher un commentaire.
     public function ComHide($idcom,$idevent){
         Evenement::where("id_commentaire",$idcom)->leftjoin('images','evenements.id_evenement','=','images.id_evenement')->leftjoin('commentaires','images.id_image','=','commentaires.id_image')->update(['visibilite_commentaire'=>0]);
         $Evenement = Evenement::where('evenements.id_evenement',$idevent)->leftjoin('images','evenements.id_evenement','=','images.id_evenement')

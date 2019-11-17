@@ -10,7 +10,7 @@ class CreateProduitTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * Permet de crée la table Produits
      * @return void
      */
     public function up()

@@ -21,7 +21,7 @@ class ImageController extends Controller
 
         return view('createImage');
     }
-
+    // permet de tellecharger un fichier Json contennant les données de toute les photos contennus sur tout le site
     public function dlimagejson()
     {
         $Image = Image::all();
