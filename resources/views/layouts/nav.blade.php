@@ -19,6 +19,9 @@
                     <li><a href="/eventspasses">Events passés</a></li>
                 </ul>
             </li>
+
+            <!-- will be part of the code when the session part works  -->
+
             {{--
                 @if ($_SESSION['user']-> role = 'admin' || $_SESSION['user']-> role = 'BDE')
                     <a class="navbar-brand" href="/dljsonimage">DL Json ALL Image</a>
@@ -32,7 +35,9 @@
                     <span class="badge">{{ \Illuminate\Support\Facades\Session::has('cart') ? \Illuminate\Support\Facades\Session::get('cart')->quantiteTotal : ''}}
                     </span>
                 </a>
-            </li>
+
+                <!-- will be part of the code when the session part works  -->
+
             {{--
                 @if ($_SESSION['user']->role)
                 <li><a href="/welcome/déco"><span class="glyphicon glyphicon-user"></span> S'inscrire</a></li>
