@@ -16,14 +16,13 @@ class CreateEvenementTable extends Migration
      */
     public function up()
     {
-        Schema::create('evenement', function (Blueprint $table) {
+        Schema::create('evenements', function (Blueprint $table) {
             $table->bigIncrements('id_evenement');
             $table->string('nom_evenement');
             $table->string('association');
             $table->string('description_evenement');
             $table->date('date_evenement');
-            $table->boolean('reccurence');
-            $table->integer('prix');
+            $table->boolean('recurence');
             $table->date('date_creation');
             $table->integer('user_id');
             $table->timestamps();

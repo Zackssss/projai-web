@@ -15,8 +15,8 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
+     protected $fillable = [
+        'nom', 'prenom', 'centre', 'mail', 'password', 'role'
     ];
 
     /**
@@ -25,7 +25,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'remember_token',
     ];
 
     /**
@@ -36,4 +36,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    /*public function toArray()
+{
+    //return parent::toArray();
+    return [
+        'id' => $this->id,
+        'name' =>$this->name,
+        'email' =>$this->email,
+        'password' =>$this->password,
+
+    ];
+}*/
+
+
+
 }

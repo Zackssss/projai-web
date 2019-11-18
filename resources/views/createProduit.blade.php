@@ -1,37 +1,28 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html>
+@extends('layouts.head')
+@extends('layouts.footer')
+@extends('layouts.nav')
 
+</html>
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('createEvent') }}</div>
+<h1>Création de produit</h1>
 
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('createEvent') }}">
-                            @csrf
-                            <label for="nom_produit" class="col-md-4 col-form-label text-md-right">{{ __('Nom') }}</label>
+                            <form action="" method="post">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                            <div class="col-md-6">
-                                <input id="nom_produit" type="text" class="form-control @error('nom_produit') is-invalid @enderror" name="nom_produit" value="{{ old('nom_produit') }}" required autocomplete="nom_produit" autofocus>
 
-                                @error('nom_evenement)
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
 
                             <div class="form-group row">
-                                <label for="association" class="col-md-4 col-form-label text-md-right">{{ __('Association') }}</label>
+                                <label for="nom_produit" class="col-md-4 col-form-label text-md-right">{{ __('Nom') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="association" type="text" class="form-control @error('association') is-invalid @enderror" name="association" value="{{ old('association') }}" required autocomplete="association" autofocus>
+                                    <input id="nom_produit" type="text" class="form-control @error('nom_produit') is-invalid @enderror" name="nom_produit" value="{{ old('nom_produit') }}" required autocomplete="nom_produit" autofocus>
 
-                                    @error('association')
+                                    @error('nom_evenement')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
-                                    </span>
+                                     </span>
                                     @enderror
                                 </div>
                             </div>
@@ -50,37 +41,50 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="date_produit" class="col-md-4 col-form-label text-md-right">{{ __('Date_expiration') }}</label>
+                                <div class="form-group row">
+                                    <label for="prix" class="col-md-4 col-form-label text-md-right">{{ __('Prix') }}</label>
 
-                                <div class="col-md-6">
-                                    <input id="date_produit" type="date" class="form-control @error('description_produit') is-invalid @enderror" name="date_produit" value="01-01-2019" min="2019-11-11">
+                                    <div class="col-md-6">
+                                        <input id="prix" type="text" class="form-control @error('prix') is-invalid @enderror" name="prix" value="{{ old('prix') }}" required autocomplete="prix" autofocus>
 
-                                    @error('date_produit')
-                                    <span class="invalid-feedback" role="alert">
+                                        @error('prix')
+                                        <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                    @enderror
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group row">
-                                <label for="prix" class="col-md-4 col-form-label text-md-right">{{ __('Prix') }}</label>
+                                <div class="form-group row">
+                                    <label for="url_image_produit" class="col-md-4 col-form-label text-md-right">{{ __('URL_Image') }}</label>
 
-                                <div class="col-md-6">
-                                    <input id="prix" type="text" class="form-control @error('prix') is-invalid @enderror" name="description" value="{{ old('prix') }}" required autocomplete="prix" autofocus>
+                                    <div class="col-md-6">
+                                        <input id="url_image_produit" type="text" class="form-control @error('url_image_produit') is-invalid @enderror" name="url_image_produit" value="{{ old('url_image_produit') }}" required autocomplete="url_image_produit" autofocus>
 
-                                    @error('prix')
-                                    <span class="invalid-feedback" role="alert">
+                                        @error('url_image_produit')
+                                        <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                    @enderror
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
+                                <div class="form-group row">
+                                    <label for="id_evenement" class="col-md-4 col-form-label text-md-right">{{ __('Numéro d Évènement (si il n y a pas dévènement numéro évènement = 0)') }}</label>
+
+                                    <div class="col-md-6">
+                                        <input id="id_evenement" type="text" class="form-control @error('id_evenement') is-invalid @enderror" name="id_evenement" value="{{ old('id_evenement') }}" required autocomplete="id_evenement" autofocus>
+
+                                        @error('id_evenement')
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <button type = "submit" class="btn btn-success">Enregistrer</button>
+                                </div>
+                            </form>
 @endsection

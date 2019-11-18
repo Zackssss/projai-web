@@ -10,12 +10,13 @@ class CreateCommentaireTable extends Migration
 {
     /**
      * Run the migrations.
+     * Permet de crée la table commentaire
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('commentaire', function (Blueprint $table) {
+        Schema::create('commentaires', function (Blueprint $table) {
             $table->bigIncrements('id_commentaire');
             $table->string('texte',300);
             $table->boolean('visibilite_commentaire');

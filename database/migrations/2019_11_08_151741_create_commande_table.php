@@ -10,13 +10,13 @@ class CreateCommandeTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * Permet de crée la table commandes
      * @return void
      */
     public function up()
     {
-        Schema::create('commande', function (Blueprint $table) {
-            $table->bigIncrements('id_commande');
+        Schema::create('commandes', function (Blueprint $table) {
+            $table->bigInteger('id_commande')-> index();
             $table->date('date_commande');
             $table->integer('quantite');
             $table->integer('user_id');

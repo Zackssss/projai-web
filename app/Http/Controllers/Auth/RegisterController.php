@@ -1,13 +1,13 @@
 <?php
-
 namespace App\Http\Controllers\Auth;
-
 use App\Http\Controllers\Controller;
 use App\User;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-
 class RegisterController extends Controller
 {
     /*
@@ -20,9 +20,7 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
-
     use RegistersUsers;
-
     /**
      * Where to redirect users after registration.
      *
@@ -39,7 +37,6 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
-
     /**
      * Get a validator for an incoming registration request.
      *
@@ -49,12 +46,14 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'nom' => ['required', 'string', 'max:255'],
+            'prenom' => ['required', 'string', 'max:255'],
+            'centre' => ['required', 'string', 'max:255'],
+            'mail' => ['required', 'string', 'mail', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'PdC' => ['required']
         ]);
     }
-
     /**
      * Create a new user instance after a valid registration.
      *
@@ -64,9 +63,36 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+            'nom' => $data['nom'],
+            'prenom' => $data['prenom'],
+            'centre' => $data['centre'],
+            'mail' => $data['mail'],
             'password' => Hash::make($data['password']),
         ]);
     }
+
+    /**
+     * @param Request $request
+     * @throws GuzzleException
+     */
+
+    /* Permet d'envoyer les informations écrites et définies vers l'API sous le format .json.
+    Cela permettra ainsi de remplir la BDD dans l'Api et de remplir la table user */
+
+    public function callJson(Request $request){
+        $client = new Client();
+        $userJson = ['nom' => $request->input('nom'),
+            'prenom' => $request->input('prenom'),
+            'centre' => $request->input('centre'),
+            'mail' => $request->input('mail'),
+            'mdp' => $request->input('mdp'),
+            'role' => 'etudiant'];
+
+        $response = $client->request('POST', 'localhost:8080/users/register', ['headers' => [
+            'Accept' => 'application/json'
+        ],
+            'json' => $userJson]);
+        return view('welcome');
+        }
+
 }

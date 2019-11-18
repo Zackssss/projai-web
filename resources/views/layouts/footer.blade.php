@@ -1,47 +1,13 @@
-<!-- Footer -->
-<footer class="page-footer font-small special-color-dark pt-4">
+<!-- legal informations -->
 
-    <!-- Footer Elements -->
-    <div class="container">
+<div class="footer">
+    <p1><a href="/conditions">Conditions générales de vente</a> &emsp; <a href="/cookies">Cookies</a> &emsp; <a href="/infoscontact">Nous contacter facilement</a></p1>
+    <p>© 2019, BDE CESI Inc.</p>
+</div>
 
-        <!-- Social buttons -->
-        <ul class="list-unstyled list-inline text-center">
-            <li class="list-inline-item">
-                <a class="btn-floating btn-fb mx-1">
-                    <i class="fab fa-facebook-f"> </i>
-                </a>
-            </li>
-            <li class="list-inline-item">
-                <a class="btn-floating btn-tw mx-1">
-                    <i class="fab fa-twitter"> </i>
-                </a>
-            </li>
-            <li class="list-inline-item">
-                <a class="btn-floating btn-gplus mx-1">
-                    <i class="fab fa-google-plus-g"> </i>
-                </a>
-            </li>
-            <li class="list-inline-item">
-                <a class="btn-floating btn-li mx-1">
-                    <i class="fab fa-linkedin-in"> </i>
-                </a>
-            </li>
-            <li class="list-inline-item">
-                <a class="btn-floating btn-dribbble mx-1">
-                    <i class="fab fa-dribbble"> </i>
-                </a>
-            </li>
-        </ul>
-        <!-- Social buttons -->
+<!-- CESI logo -->
 
-    </div>
-    <!-- Footer Elements -->
+<div class="logofooter">
+    <img src="https://www.campus-region.fr/wp-content/uploads/2018/06/cesi_logo_general_quadri-767x193.png" alt="logo" style="width:22%;">
+</div>
 
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2018 Copyright:
-        <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
-    </div>
-    <!-- Copyright -->
-
-</footer>
-<!-- Footer -->

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class AddForeignkey extends Migration
 {
     /**
-     * Creating all the foreign keys
+     * Permet de crée toutes les foreign key dans les tables
      *
      * @return void
      */
@@ -15,31 +15,31 @@ class AddForeignkey extends Migration
     {
         
         
-        Schema::table('image',function(Blueprint $table){
+        Schema::table('images',function(Blueprint $table){
             $table->foreign('id_evenement')
             ->references('id_evenement')
-            ->on('evenement')
+            ->on('evenements')
             ->onDelete('cascade');
         });
 
-        Schema::table('produit',function(Blueprint $table){
+        Schema::table('produits',function(Blueprint $table){
             $table->foreign('id_evenement')
             ->references('id_evenement')
-            ->on('produit')
+            ->on('produits')
             ->onDelete('cascade');
         });
 
-        Schema::table('commande',function(Blueprint $table){
+        Schema::table('commandes',function(Blueprint $table){
             $table->foreign('id_produit')
             ->references('id_produit')
-            ->on('produit')
+            ->on('produits')
             ->onDelete('cascade');
         });
 
-        Schema::table('commentaire',function(Blueprint $table){
+        Schema::table('commentaires',function(Blueprint $table){
             $table->foreign('id_image')
             ->references('id_image')
-            ->on('image')
+            ->on('images')
             ->onDelete('cascade');
         });
 
@@ -59,6 +59,6 @@ class AddForeignkey extends Migration
      */
     public function down()
     {
-        //
+        
     }
 }

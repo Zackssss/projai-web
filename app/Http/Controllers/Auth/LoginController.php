@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -36,4 +39,28 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    /**
+     * @param Request $request
+     * @return mixed
+     * @throws GuzzleException
+     */
+
+    /* Permet d'envoyer les informations écrites vers l'API afin de comparer ces informations avec celles de l'APi.*/
+
+    public function callJson(Request $request){
+        $client = new Client();
+        $userJson = [
+            'mail' => $request->input('mail'),
+            'mdp' => $request->input('mdp'),
+];
+        $response = $client->request('POST', 'localhost:8080/users/login', ['headers' => [
+            'Accept' => 'application/json'
+        ],
+            'json' => $userJson]);
+        $datas = json_decode($response->getBody(), false, 512);
+        $_SESSION['user'] = $datas -> user;
+        return $_SESSION['user'];
+    }
+
 }
